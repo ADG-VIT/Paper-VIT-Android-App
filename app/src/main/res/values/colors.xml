@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#232A45</color>
+    <color name="colorAccent">#232A45</color>
+    <color name="disableColor">#2D2F36</color>
+    <color name="white">#FFFFFF</color>
+    <color name="searchIcon">#DBDBDB</color>
+    <color name="cardColor">#161A2B</color>
+    <color name="edit">#DB8000</color>
+    <color name="grey">#dddddd</color>
+</resources>
