@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URLConnection;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -74,7 +75,7 @@ public class Exam_2 extends AppCompatActivity {
 
         TextView subShort, subName, subName2, subCode, subYear, subSlot;
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String subjectName = intent.getStringExtra("subName");
         String subjectShort = intent.getStringExtra("subShort");
         String subjectCode = intent.getStringExtra("subCode");
@@ -108,13 +109,11 @@ public class Exam_2 extends AppCompatActivity {
             pdfView.fromFile(file).load();
             downloadPdf.setText(getString(R.string.view));
             paperDownloaded = true;
-            downloadIcon.setImageDrawable(getDrawable(R.drawable.downloaded));
 
 
         }else{
             Log.i("INFO","file not found");
             paperDownloaded = false;
-            downloadIcon.setImageDrawable(getDrawable(R.drawable.not_downloaded));
         }
 
         String url = "https://papervit.herokuapp.com/papers/data?id=" + paperId;
@@ -201,10 +200,15 @@ public class Exam_2 extends AppCompatActivity {
             public void onClick(View view) {
                 if(paperDownloaded){
 
-                    startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS));
+//                    startActivity(new Intent(DownloadManager.ACTION_VIEW_DOWNLOADS));
+
+                    Intent intent1 = new Intent(Intent.ACTION_SEND);
+                    intent1.setType(URLConnection.guessContentTypeFromName(file.getName()));
+                    intent1.putExtra(Intent.EXTRA_STREAM,Uri.parse(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename));
+                    startActivity(Intent.createChooser(intent1, "Share File"));
 
                 }else{
-                    Toast toast = Toast.makeText(Exam_2.this, "Press Download PDF button to download the paper",Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(Exam_2.this, "Download the paper to share",Toast.LENGTH_LONG);
                     TextView textView = toast.getView().findViewById(android.R.id.message);
                     if (textView!=null)
                     {
@@ -284,7 +288,6 @@ public class Exam_2 extends AppCompatActivity {
             downloadPdf.setAlpha(1f);
             downloadPdf.setEnabled(true);
             paperDownloaded = true;
-            downloadIcon.setImageDrawable(getDrawable(R.drawable.downloaded));
             Toast.makeText(this, "Paper saved at " + downloadPath.getAbsolutePath(), Toast.LENGTH_LONG).show();
 
             Log.i("INFO","File saved successfully");
@@ -305,4 +308,3 @@ public class Exam_2 extends AppCompatActivity {
         RecyclerViewAdapter2.showShimmer = false;
     }
 }
-
