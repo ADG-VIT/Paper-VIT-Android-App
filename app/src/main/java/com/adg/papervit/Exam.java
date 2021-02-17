@@ -81,7 +81,7 @@ public class Exam extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_exam);
 
         favRecyclerView = findViewById(R.id.favRecyclerView);
@@ -229,25 +229,67 @@ public class Exam extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String searchText = String.valueOf(charSequence).toLowerCase();
+                searchedSubjectCodeArrayList.clear();
+                searchedSubjectNameArrayList.clear();
+                searchedSubjectShortArrayList.clear();
+                searchedcheckArrayList.clear();
                 searchedSubjectNameArrayList = new ArrayList<>();
                 searchedSubjectShortArrayList = new ArrayList<>();
                 searchedSubjectCodeArrayList = new ArrayList<>();
                 searchedcheckArrayList = new ArrayList<>();
-
                 for (String name : subjectNameArrayList)
                 {
                     if(isContain(name.toLowerCase(), searchText))
                     {
-                        Log.i("INFO",name);
+
+                        //Log.i("INFO",name);
                         searchedSubjectNameArrayList.add(name);
+                        //Log.i("INFO",searchedSubjectNameArrayList.toString());
                         searchedSubjectCodeArrayList.add(subjectCodeArrayList.get(subjectNameArrayList.indexOf(name)));
                         searchedSubjectShortArrayList.add(subjectShortArrayList.get(subjectNameArrayList.indexOf(name)));
                         searchedcheckArrayList.add(checkArrayList.get(subjectNameArrayList.indexOf(name)));
 
-                        allSubjectRecyclerViewAdapter = new RecyclerViewAdapter(searchedSubjectNameArrayList,searchedSubjectShortArrayList,searchedSubjectCodeArrayList,context, searchedcheckArrayList);
-                        allSubjectRecyclerView.setAdapter(allSubjectRecyclerViewAdapter);
                     }
                 }
+                searchedSubjectCodeArrayList.clear();
+                searchedSubjectNameArrayList.clear();
+                searchedSubjectShortArrayList.clear();
+                searchedcheckArrayList.clear();
+                for (String name : subjectShortArrayList)
+                {
+                    if(isContain(name.toLowerCase(), searchText))
+                    {
+
+                        //Log.i("INFO",name);
+                        searchedSubjectShortArrayList.add(name);
+                        //Log.i("INFO",searchedSubjectShortArrayList.toString());
+                        searchedSubjectCodeArrayList.add(subjectCodeArrayList.get(subjectShortArrayList.indexOf(name)));
+                        searchedSubjectNameArrayList.add(subjectNameArrayList.get(subjectShortArrayList.indexOf(name)));
+                        searchedcheckArrayList.add(checkArrayList.get(subjectShortArrayList.indexOf(name)));
+
+                    }
+                }
+                searchedSubjectCodeArrayList.clear();
+                searchedSubjectNameArrayList.clear();
+                searchedSubjectShortArrayList.clear();
+                searchedcheckArrayList.clear();
+                for (String name : subjectCodeArrayList)
+                {
+                    if(isContain(name.toLowerCase(), searchText))
+                    {
+
+                        //Log.i("INFO",name);
+                        searchedSubjectCodeArrayList.add(name);
+                        //Log.i("INFO",searchedSubjectShortArrayList.toString());
+                        searchedSubjectNameArrayList.add(subjectCodeArrayList.get(subjectCodeArrayList.indexOf(name)));
+                        searchedSubjectShortArrayList.add(subjectShortArrayList.get(subjectCodeArrayList.indexOf(name)));
+                        searchedcheckArrayList.add(checkArrayList.get(subjectCodeArrayList.indexOf(name)));
+
+                    }
+                }
+                allSubjectRecyclerViewAdapter = new RecyclerViewAdapter(searchedSubjectNameArrayList,searchedSubjectShortArrayList,searchedSubjectCodeArrayList,context, searchedcheckArrayList);
+                allSubjectRecyclerView.setAdapter(allSubjectRecyclerViewAdapter);
+                allSubjectRecyclerViewAdapter.notifyDataSetChanged();
             }
 
             @Override
