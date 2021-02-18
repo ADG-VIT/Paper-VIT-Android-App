@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,6 +64,7 @@ public class Exam extends AppCompatActivity {
 
     public static TextView favTextView,examTypeEditText;
     private EditText searchEditText;
+    private Button option;
     public static Context context;
     private static String cat1 = "CAT 1";
     private static String cat2 = "CAT 2";
@@ -68,6 +73,7 @@ public class Exam extends AppCompatActivity {
     private String cat2_action = "android.intent.action.CAT2";
     private String fat_action = "android.intent.action.FAT";
 
+    public static int filterOption = 0;
 
     public static String examType = "CAT 1";
     private Database database;
@@ -89,6 +95,7 @@ public class Exam extends AppCompatActivity {
         favTextView = findViewById(R.id.favTextView);
         examTypeEditText = findViewById(R.id.examTypeEditText);
         searchEditText = findViewById(R.id.searchEditText);
+        option = findViewById(R.id.filterOption1);
 
         context = Exam.this;
 
@@ -201,6 +208,35 @@ public class Exam extends AppCompatActivity {
             }
         });
 
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(context,option);
+                popupMenu.getMenuInflater().inflate(R.menu.option1,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        if(item.toString().equals("Subject")){
+                            filterOption=0;
+                            searchEditText.setHint("Search by Subject Name");
+                        }
+                        else if(item.toString().equals("Short")){
+                            filterOption=1;
+                            searchEditText.setHint("Search by Subject Short");
+                        }
+                        else if(item.toString().equals("Subject Code")){
+                            filterOption=2;
+                            searchEditText.setHint("Search by Subject Code");
+                        }
+                        else {
+                            Toast.makeText(Exam.this, "Please try again", Toast.LENGTH_SHORT).show();
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
         KeyboardVisibilityEvent.setEventListener(
                 Exam.this,
                 new KeyboardVisibilityEventListener() {
@@ -229,67 +265,79 @@ public class Exam extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String searchText = String.valueOf(charSequence).toLowerCase();
-                searchedSubjectCodeArrayList.clear();
-                searchedSubjectNameArrayList.clear();
-                searchedSubjectShortArrayList.clear();
-                searchedcheckArrayList.clear();
                 searchedSubjectNameArrayList = new ArrayList<>();
                 searchedSubjectShortArrayList = new ArrayList<>();
                 searchedSubjectCodeArrayList = new ArrayList<>();
                 searchedcheckArrayList = new ArrayList<>();
-                for (String name : subjectNameArrayList)
-                {
-                    if(isContain(name.toLowerCase(), searchText))
-                    {
-
-                        //Log.i("INFO",name);
-                        searchedSubjectNameArrayList.add(name);
-                        //Log.i("INFO",searchedSubjectNameArrayList.toString());
-                        searchedSubjectCodeArrayList.add(subjectCodeArrayList.get(subjectNameArrayList.indexOf(name)));
-                        searchedSubjectShortArrayList.add(subjectShortArrayList.get(subjectNameArrayList.indexOf(name)));
-                        searchedcheckArrayList.add(checkArrayList.get(subjectNameArrayList.indexOf(name)));
-
-                    }
-                }
-                searchedSubjectCodeArrayList.clear();
                 searchedSubjectNameArrayList.clear();
                 searchedSubjectShortArrayList.clear();
-                searchedcheckArrayList.clear();
-                for (String name : subjectShortArrayList)
-                {
-                    if(isContain(name.toLowerCase(), searchText))
-                    {
-
-                        //Log.i("INFO",name);
-                        searchedSubjectShortArrayList.add(name);
-                        //Log.i("INFO",searchedSubjectShortArrayList.toString());
-                        searchedSubjectCodeArrayList.add(subjectCodeArrayList.get(subjectShortArrayList.indexOf(name)));
-                        searchedSubjectNameArrayList.add(subjectNameArrayList.get(subjectShortArrayList.indexOf(name)));
-                        searchedcheckArrayList.add(checkArrayList.get(subjectShortArrayList.indexOf(name)));
-
-                    }
-                }
                 searchedSubjectCodeArrayList.clear();
-                searchedSubjectNameArrayList.clear();
-                searchedSubjectShortArrayList.clear();
                 searchedcheckArrayList.clear();
-                for (String name : subjectCodeArrayList)
-                {
-                    if(isContain(name.toLowerCase(), searchText))
-                    {
+                if(filterOption==0) {
+                    for (String name : subjectNameArrayList) {
+                        if (isContain(name.toLowerCase(), searchText)) {
 
-                        //Log.i("INFO",name);
-                        searchedSubjectCodeArrayList.add(name);
-                        //Log.i("INFO",searchedSubjectShortArrayList.toString());
-                        searchedSubjectNameArrayList.add(subjectCodeArrayList.get(subjectCodeArrayList.indexOf(name)));
-                        searchedSubjectShortArrayList.add(subjectShortArrayList.get(subjectCodeArrayList.indexOf(name)));
-                        searchedcheckArrayList.add(checkArrayList.get(subjectCodeArrayList.indexOf(name)));
+                            //Log.i("INFO",name);
+                            searchedSubjectNameArrayList.add(name);
+                            //Log.i("INFO",searchedSubjectNameArrayList.toString());
+                            searchedSubjectCodeArrayList.add(subjectCodeArrayList.get(subjectNameArrayList.indexOf(name)));
+                            searchedSubjectShortArrayList.add(subjectShortArrayList.get(subjectNameArrayList.indexOf(name)));
+                            searchedcheckArrayList.add(checkArrayList.get(subjectNameArrayList.indexOf(name)));
 
+                        }
+                    }
+
+                }
+                else  if(filterOption==1){
+                    //Log.i("filterOption","One");
+                    //Log.i("filterOption",String.valueOf(filterOption));
+                    for (String name : subjectShortArrayList) {
+                        if (isContain(name.toLowerCase(), searchText)) {
+
+                            //Log.i("INFO",name);
+                            searchedSubjectShortArrayList.add(name);
+                            //Log.i("INFO",searchedSubjectNameArrayList.toString());
+                            searchedSubjectCodeArrayList.add(subjectCodeArrayList.get(subjectShortArrayList.indexOf(name)));
+                            searchedSubjectNameArrayList.add(subjectNameArrayList.get(subjectShortArrayList.indexOf(name)));
+                            searchedcheckArrayList.add(checkArrayList.get(subjectShortArrayList.indexOf(name)));
+
+                        }
                     }
                 }
-                allSubjectRecyclerViewAdapter = new RecyclerViewAdapter(searchedSubjectNameArrayList,searchedSubjectShortArrayList,searchedSubjectCodeArrayList,context, searchedcheckArrayList);
+                else if(filterOption==2){
+                    //Log.i("filterOption","Two");
+                    //Log.i("filterOption",String.valueOf(filterOption));
+                    for (String name : subjectCodeArrayList) {
+                        if (isContain(name.toLowerCase(), searchText)) {
+
+                            //Log.i("INFO",name);
+                            searchedSubjectCodeArrayList.add(name);
+                            //Log.i("INFO",searchedSubjectNameArrayList.toString());
+                            searchedSubjectShortArrayList.add(subjectShortArrayList.get(subjectCodeArrayList.indexOf(name)));
+                            searchedSubjectNameArrayList.add(subjectNameArrayList.get(subjectCodeArrayList.indexOf(name)));
+                            searchedcheckArrayList.add(checkArrayList.get(subjectCodeArrayList.indexOf(name)));
+
+                        }
+                    }
+                }
+                else {
+                    for (String name : subjectNameArrayList) {
+                        if (isContain(name.toLowerCase(), searchText)) {
+
+                            //Log.i("INFO",name);
+                            searchedSubjectNameArrayList.add(name);
+                            //Log.i("INFO",searchedSubjectNameArrayList.toString());
+                            searchedSubjectCodeArrayList.add(subjectCodeArrayList.get(subjectNameArrayList.indexOf(name)));
+                            searchedSubjectShortArrayList.add(subjectShortArrayList.get(subjectNameArrayList.indexOf(name)));
+                            searchedcheckArrayList.add(checkArrayList.get(subjectNameArrayList.indexOf(name)));
+
+                        }
+                    }
+                }
+                allSubjectRecyclerViewAdapter = new RecyclerViewAdapter(searchedSubjectNameArrayList, searchedSubjectShortArrayList, searchedSubjectCodeArrayList, context, searchedcheckArrayList);
                 allSubjectRecyclerView.setAdapter(allSubjectRecyclerViewAdapter);
                 allSubjectRecyclerViewAdapter.notifyDataSetChanged();
+
             }
 
             @Override
