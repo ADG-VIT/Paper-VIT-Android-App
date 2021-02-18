@@ -12,45 +12,637 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/privacyPolicyCardView"
+        <LinearLayout
+            android:id="@+id/linear3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
-            android:backgroundTint="#161A2B"
-            app:cardCornerRadius="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:scrollbars="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ishaanCard">
+            app:layout_constraintTop_toBottomOf="@+id/linear2">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/gokulCard"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="#161A2B"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sf_pro_text_medium"
-                    android:paddingVertical="15dp"
-                    android:text="@string/privacy"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="14dp" />
+                    android:layout_height="match_parent"
+                    android:background="#161A2B">
 
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/gokulImage"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ishaan" />
 
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/gokulName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Gokul Nair"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/gokulImage" />
+
+                    <TextView
+                        android:id="@+id/gokulDesig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="iOS Developer"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="13.5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/gokulName" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/gokulDesig">
+
+                        <ImageView
+                            android:id="@+id/gokulLinkedin"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/linkedin" />
+
+                        <ImageView
+                            android:id="@+id/gokulEmail"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/mail" />
+
+                        <ImageView
+                            android:id="@+id/gokulGithub"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/github" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/prabalCard"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="#161A2B"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ishaanCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#161A2B">
+
+                    <ImageView
+                        android:id="@+id/prabalImage"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/akshit" />
+
+                    <TextView
+                        android:id="@+id/prabalName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Ridhi Gupta"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/prabalImage" />
+
+                    <TextView
+                        android:id="@+id/prabalDesig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="iOS Developer"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="13.5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/prabalName" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/prabalDesig">
+
+                        <ImageView
+                            android:id="@+id/prabalLinkedin"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/linkedin" />
+
+                        <ImageView
+                            android:id="@+id/prabalEmail"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/mail" />
+
+                        <ImageView
+                            android:id="@+id/prabalGithub"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/github" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ishaanCard"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="#161A2B"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#161A2B">
+
+                    <ImageView
+                        android:id="@+id/ishaanImage"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ishaan" />
+
+                    <TextView
+                        android:id="@+id/ishaanName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Ishaan Ohri"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ishaanImage" />
+
+                    <TextView
+                        android:id="@+id/ishaanDesig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="Backend and Android Developer"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="13.5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ishaanName" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ishaanDesig">
+
+                        <ImageView
+                            android:id="@+id/ishaanLinkedin"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/linkedin" />
+
+                        <ImageView
+                            android:id="@+id/ishaanEmail"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/mail" />
+
+                        <ImageView
+                            android:id="@+id/ishaanGithub"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/github" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/akshitCard"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="#161A2B"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ishaanCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#161A2B">
+
+                    <ImageView
+                        android:id="@+id/akshitImage"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/akshit" />
+
+                    <TextView
+                        android:id="@+id/akshitName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Akshit Sandana"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/akshitImage" />
+
+                    <TextView
+                        android:id="@+id/akshitDesig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="Backend and Android Developer"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="13.5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/akshitName" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/akshitDesig">
+
+                        <ImageView
+                            android:id="@+id/akshitLinkedin"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/linkedin" />
+
+                        <ImageView
+                            android:id="@+id/akshitEmail"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/mail" />
+
+                        <ImageView
+                            android:id="@+id/akshitGithub"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/github" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear1">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/panshulCard"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="#161A2B"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#161A2B">
+
+                    <ImageView
+                        android:id="@+id/panshulImage"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ishaan" />
+
+                    <TextView
+                        android:id="@+id/panshulName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Panshul Jindal"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/panshulImage" />
+
+                    <TextView
+                        android:id="@+id/panshulDesig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
+                        android:text="Android Developer"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="13.5dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/panshulName" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/panshulDesig">
+
+                        <ImageView
+                            android:id="@+id/panshulLinkedin"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/linkedin" />
+
+                        <ImageView
+                            android:id="@+id/panshulEmail"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/mail" />
+
+                        <ImageView
+                            android:id="@+id/panshulGithub"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/github" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ridhiCard"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="#161A2B"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ishaanCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#161A2B">
+
+                    <ImageView
+                        android:id="@+id/ridhiImage"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/akshit" />
+
+                    <TextView
+                        android:id="@+id/ridhiName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:text="Ridhi Gupta"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ridhiImage" />
+
+                    <TextView
+                        android:id="@+id/ridhiDesig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/sf_pro_text_regular"
+                        android:text="iOS Developer"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="13.5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ridhiName" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ridhiDesig">
+
+                        <ImageView
+                            android:id="@+id/ridhiLinkedin"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/linkedin" />
+
+                        <ImageView
+                            android:id="@+id/ridhiEmail"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/mail" />
+
+                        <ImageView
+                            android:id="@+id/ridhiGithub"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="15dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:src="@drawable/github" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/examTypeEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/sf_pro_display_bold"
             android:text="@string/team"
             android:textColor="@color/white"
@@ -68,188 +660,6 @@
             android:textSize="13dp"
             app:layout_constraintStart_toStartOf="@+id/examTypeEditText"
             app:layout_constraintTop_toBottomOf="@+id/examTypeEditText" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/akshitCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#161A2B"
-            app:cardCornerRadius="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingVertical="30dp"
-                android:paddingHorizontal="25dp">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/akshit"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2">
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sf_pro_text_bold"
-                        android:text="@string/akshit"
-                        android:textColor="@color/white"
-                        android:textSize="25dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="@string/android"
-                        android:textColor="@color/white"
-                        android:textSize="20dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/akshitLinkedIn"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:src="@drawable/linkedin" />
-
-                        <ImageView
-                            android:id="@+id/akshitGitHub"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:src="@drawable/github" />
-
-                        <ImageView
-                            android:id="@+id/akshitMail"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:src="@drawable/mail" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/ishaanCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#161A2B"
-            app:cardCornerRadius="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/akshitCard">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingVertical="30dp"
-                android:paddingHorizontal="25dp">
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ishaan"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3">
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sf_pro_text_bold"
-                        android:text="@string/ishaan"
-                        android:textColor="@color/white"
-                        android:textSize="25dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/sf_pro_text_regular"
-                        android:text="@string/android"
-                        android:textColor="@color/white"
-                        android:textSize="20dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/ishaanLinkedIn"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:src="@drawable/linkedin" />
-
-                        <ImageView
-                            android:id="@+id/ishaanGitHub"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:src="@drawable/github" />
-
-                        <ImageView
-                            android:id="@+id/ishaanMail"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:src="@drawable/mail" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

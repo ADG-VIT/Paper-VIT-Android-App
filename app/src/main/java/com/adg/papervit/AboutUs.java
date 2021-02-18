@@ -30,13 +30,13 @@ public class AboutUs extends AppCompatActivity {
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_about_us);
 
-        ishaanLinkedIn = findViewById(R.id.ishaanLinkedIn);
-        ishaanGitHub = findViewById(R.id.ishaanGitHub);
-        ishaanMail = findViewById(R.id.ishaanMail);
-        akshitLinkedIn = findViewById(R.id.akshitLinkedIn);
-        akshitGitHub = findViewById(R.id.akshitGitHub);
-        akshitMail = findViewById(R.id.akshitMail);
-        privacyPolicyCardView = findViewById(R.id.privacyPolicyCardView);
+        ishaanLinkedIn = findViewById(R.id.ishaanLinkedin);
+        ishaanGitHub = findViewById(R.id.ishaanGithub);
+        ishaanMail = findViewById(R.id.ishaanEmail);
+        akshitLinkedIn = findViewById(R.id.akshitLinkedin);
+        akshitGitHub = findViewById(R.id.akshitGithub);
+        akshitMail = findViewById(R.id.akshitEmail);
+        /*privacyPolicyCardView = findViewById(R.id.privacyPolicyCardView);
 
         privacyPolicyCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class AboutUs extends AppCompatActivity {
                 intent.setData(Uri.parse(privacyPolicy));
                 startActivity(intent);
             }
-        });
+        });*/
 
         ishaanLinkedIn.setOnClickListener(new View.OnClickListener() {
             @Override
