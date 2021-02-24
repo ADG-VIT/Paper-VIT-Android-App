@@ -6,13 +6,17 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import java.nio.channels.Channel;
 import java.util.Properties;
@@ -32,6 +36,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import static android.app.Notification.EXTRA_NOTIFICATION_ID;
+import static android.content.Context.NOTIFICATION_SERVICE;
+import static android.content.Context.POWER_SERVICE;
 
 public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
@@ -42,6 +48,8 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     private String mSubject;
     private String mMessage;
     private String mFile;
+    private static final String TAG = "NotificationService";
+    private static final String CHANNEL_ID = "PushNotifications";
 
 
     private ProgressDialog mProgressDialog;
@@ -59,7 +67,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     protected void onPreExecute() {
         super.onPreExecute();
         //Show progress dialog while sending email
-        mProgressDialog = ProgressDialog.show(mContext,"Uploading Paper", "Please wait...",false,false);
+       // mProgressDialog = ProgressDialog.show(mContext,"Uploading Paper", "Please wait...",false,false);
     }
 
     @Override
@@ -74,7 +82,9 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     @Override
     protected Void doInBackground(Void... params) {
         //Creating properties
+        mContext.startActivity(new Intent(mContext,MainActivity.class));
         Properties props = new Properties();
+        createNotificationChannel();
 
         //Configuring properties for gmail
         //If you are not using gmail you may need to change the values
@@ -123,14 +133,16 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
             //Sending email
             Transport.send(mm);
 
-            mProgressDialog.dismiss();
+            //mProgressDialog.dismiss();
 
             Thread thread = new Thread(){
                 public void run(){
                     Looper.prepare();
 
-                    Toast.makeText(mContext, "Paper uploaded successfully!", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(mContext, "Paper uploaded successfully!", Toast.LENGTH_LONG).show();
+                    sendNotification("Paper Upload","Paper Uploaded Successfully");
                     Looper.loop();
+
                 }
             };
             thread.start();
@@ -143,9 +155,10 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
                 public void run(){
                     Looper.prepare();
 
-                    Toast.makeText(mContext, "Error uploading paper!", Toast.LENGTH_LONG).show();
-
+                    //Toast.makeText(mContext, "Error uploading paper!", Toast.LENGTH_LONG).show();
+                    sendNotification("Paper Upload","Paper upload Unsuccessful. Please try again");
                     Looper.loop();
+                    //mContext.startActivity(new Intent(mContext,MainActivity.class));
                 }
             };
             thread.start();
@@ -153,25 +166,42 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
         }
         return null;
     }
-    protected void notificationService(String title,String desc){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext,"PaperVit")
+    private void sendNotification(String title, String messageBody) {
+
+        Intent intent = new Intent(mContext, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0 , intent, PendingIntent.FLAG_ONE_SHOT);
+
+        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext,CHANNEL_ID)
                 .setSmallIcon(R.drawable.paper_logo)
+                //.setBadgeIconType(13)
                 .setContentTitle(title)
-                .setContentText(desc)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setContentText(messageBody)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+               .setColor(mContext.getResources().getColor(R.color.cardColor))
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setAutoCancel(true)
+                .setSound(defaultSoundUri)
+                .setContentIntent(pendingIntent);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(mContext);
+        notificationManagerCompat.notify(0,notificationBuilder.build());
 
     }
+
+    //ANDROID 8.0 AND ABOVE
     private void createNotificationChannel(){
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
-            CharSequence name = "studentChannel";
-            String description = "Channel for student notifications";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("paperVit",name,importance);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "MyNotifications";
+            String description = "All MyNotifications";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
-
-
-            NotificationManager notificationManager = getSystemService(Notici)
-
+            NotificationManager notificationManager =(NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(channel);
         }
     }
 }

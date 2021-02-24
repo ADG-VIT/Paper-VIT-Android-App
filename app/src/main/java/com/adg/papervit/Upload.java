@@ -126,7 +126,7 @@ public class Upload extends AppCompatActivity {
         }
 
         //MAILING
-        JavaMailAPI javaMailAPI = new JavaMailAPI(this,"ishaan.ohri2018@vitstudent.ac.in","UPLOAD PAPER","",Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) + "/" + "PaperUpload" + ".pdf");
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this,"panshuljindal@gmail.com","UPLOAD PAPER","",Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) + "/" + "PaperUpload" + ".pdf");
         javaMailAPI.execute();
 
     }
