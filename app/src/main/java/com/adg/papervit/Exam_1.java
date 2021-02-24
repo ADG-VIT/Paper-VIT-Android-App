@@ -43,6 +43,7 @@ public class Exam_1 extends AppCompatActivity {
     public static ArrayList<String> paperYearArrayList = new ArrayList<>();
     public static ArrayList<String> paperExamArrayList = new ArrayList<>();
     public static ArrayList<String> paperFileNameArrayList = new ArrayList<>();
+    public static ArrayList<String> paperUrlList = new ArrayList<>();
 
 
     private static String cat1 = "CAT 1";
@@ -52,7 +53,7 @@ public class Exam_1 extends AppCompatActivity {
     public static String subjectName, subjectCode, subjectShort, subjectId;
 
     private static Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl("https://papervit.herokuapp.com/")
+            .baseUrl("https://adg-papervit.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create());
 
     private static Retrofit retrofit = builder.build();
@@ -97,7 +98,7 @@ public class Exam_1 extends AppCompatActivity {
 
         API api = retrofit.create(API.class);
 
-        Call<Papers> call;
+        Call<root1> call;
 
         if (Exam.examType.equals(cat2)) {
 
@@ -112,26 +113,22 @@ public class Exam_1 extends AppCompatActivity {
             call = api.getPaperCat1(subjectId);
         }
 
-        call.enqueue(new Callback<Papers>() {
+        call.enqueue(new Callback<root1>() {
             @Override
-            public void onResponse(Call<Papers> call, Response<Papers> response) {
+            public void onResponse(Call<root1> call, Response<root1> response) {
 
-                List list = response.body().getResponse();
+                root1 model = response.body();
 
-                for (Object item : list)
+                for (paperObject item : model.getData().getPapers())
                 {
-                    LinkedTreeMap<Object,Object> linkedTreeMap = (LinkedTreeMap) item;
-                    String id = linkedTreeMap.get("_id").toString();
-                    String slot = linkedTreeMap.get("slot").toString();
-                    String exam = linkedTreeMap.get("exam").toString();
-                    String year = linkedTreeMap.get("year").toString();
-                    String filename = linkedTreeMap.get("filename").toString();
 
-                    paperIdArrayList.add(id);
-                    paperSlotArrayList.add(slot);
-                    paperExamArrayList.add(exam);
-                    paperYearArrayList.add(year);
-                    paperFileNameArrayList.add(filename);
+
+                    paperIdArrayList.add(item.get_id());
+                    paperSlotArrayList.add(item.getSlot());
+                    paperUrlList.add(item.getUrl());
+                   // paperExamArrayList.add(exam);
+                    paperYearArrayList.add(item.getSemester());
+                    paperFileNameArrayList.add(item.getFileName());
 
                 }
 
@@ -143,7 +140,7 @@ public class Exam_1 extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Papers> call, Throwable t) {
+            public void onFailure(Call<root1> call, Throwable t) {
                 Log.i("INFO",t.toString());
                 Dialog dialog = new Dialog(Exam_1.this);
                 dialog.setCancelable(false);

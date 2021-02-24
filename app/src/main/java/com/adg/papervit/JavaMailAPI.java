@@ -1,12 +1,20 @@
 package com.adg.papervit;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
+import androidx.core.app.NotificationCompat;
+
+import java.nio.channels.Channel;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -22,6 +30,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+
+import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 
 public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
@@ -142,5 +152,26 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
             e.printStackTrace();
         }
         return null;
+    }
+    protected void notificationService(String title,String desc){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext,"PaperVit")
+                .setSmallIcon(R.drawable.paper_logo)
+                .setContentTitle(title)
+                .setContentText(desc)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+    }
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            CharSequence name = "studentChannel";
+            String description = "Channel for student notifications";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("paperVit",name,importance);
+            channel.setDescription(description);
+
+
+            NotificationManager notificationManager = getSystemService(Notici)
+
+        }
     }
 }

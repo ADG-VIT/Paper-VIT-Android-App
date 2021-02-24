@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -79,7 +80,7 @@ public class Exam extends AppCompatActivity {
     private Database database;
 
     private static Retrofit.Builder builder = new Retrofit.Builder()
-            .baseUrl("https://papervit.herokuapp.com/")
+            .baseUrl("https://adg-papervit.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create());
 
     private static Retrofit retrofit = builder.build();
@@ -128,7 +129,7 @@ public class Exam extends AppCompatActivity {
 
         examTypeEditText.setText(examType);
 
-        Call<Sub> call;
+        Call<root> call;
 
         subjectNameArrayList = new ArrayList<>();
         subjectCodeArrayList = new ArrayList<>();
@@ -156,25 +157,20 @@ public class Exam extends AppCompatActivity {
             call = api.getSubCat1();
         }
 
-        call.enqueue(new Callback<Sub>() {
+        call.enqueue(new Callback<root>() {
             @Override
-            public void onResponse(Call<Sub> call, Response<Sub> response) {
+            public void onResponse(Call<root> call, Response<root> response) {
 
-                List list = response.body().getResponse();
-
-                for (Object item : list)
+                root model = response.body();
+                //Log.i("model",model.getMetadata().getTimestamp());
+                for (subject s : model.getData().getSubjects())
                 {
-                    LinkedTreeMap<Object,Object> linkedTreeMap = (LinkedTreeMap) item;
-                    String code = linkedTreeMap.get("code").toString();
-                    String subject = linkedTreeMap.get("subject").toString();
-                    String shortform = linkedTreeMap.get("shortform").toString();
-                    String id = linkedTreeMap.get("_id").toString();
 
-                    subjectNameArrayList.add(subject);
-                    subjectCodeArrayList.add(code);
-                    subjectShortArrayList.add(shortform);
+                    subjectNameArrayList.add(s.getSubjectName());
+                    subjectCodeArrayList.add(s.getSubjectCode());
+                    subjectShortArrayList.add(s.getShortName());
                     checkArrayList.add(false);
-                    subjectIdArrayList.add(id);
+                    subjectIdArrayList.add(s.get_id());
                 }
 
                 idMapping.add(subjectCodeArrayList);
@@ -182,7 +178,7 @@ public class Exam extends AppCompatActivity {
 
                 Log.i("INFO","Request Successful");
 
-                getFav();
+                //getFav();
 
                 RecyclerViewAdapter.showShimmer = false;
                 favRecyclerViewAdapter.notifyDataSetChanged();
@@ -190,7 +186,7 @@ public class Exam extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Sub> call, Throwable t) {
+            public void onFailure(Call<root> call, Throwable t) {
                 Log.i("INFO",t.toString());
                 Dialog dialog = new Dialog(Exam.this);
                 dialog.setCancelable(false);
@@ -211,7 +207,8 @@ public class Exam extends AppCompatActivity {
         option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(context,option);
+
+                PopupMenu popupMenu = new PopupMenu(context, option);
                 popupMenu.getMenuInflater().inflate(R.menu.option1,popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override

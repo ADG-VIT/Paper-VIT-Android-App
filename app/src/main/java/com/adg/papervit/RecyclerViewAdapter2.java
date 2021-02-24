@@ -77,6 +77,8 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
                     intent.putExtra("subYear", courseDesc.get(position));
                     intent.putExtra("subSlot", courseSlot.get(position));
                     intent.putExtra("paperId", Exam_1.paperIdArrayList.get(position));
+                    intent.putExtra("fileName",Exam_1.paperFileNameArrayList.get(position));
+                    intent.putExtra("fileUrl",Exam_1.paperUrlList.get(position));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }

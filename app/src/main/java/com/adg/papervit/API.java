@@ -8,26 +8,22 @@ import retrofit2.http.Url;
 
 public interface API {
 
-    @GET("papers/cat1/subjects")
-    Call<Sub> getSubCat1();
+    @GET("/api/v1/subjects/0")
+    Call<root> getSubCat1();
 
-    @GET("papers/cat2/subjects")
-    Call<Sub> getSubCat2();
+    @GET("/api/v1/subjects/1")
+    Call<root> getSubCat2();
 
-    @GET("papers/fat/subjects")
-    Call<Sub> getSubFat();
+    @GET("/api/v1/subjects/2")
+    Call<root> getSubFat();
 
-    @GET("papers/cat1/{id}")
-    Call<Papers> getPaperCat1(@Path("id") String _id);
+    @GET("/api/v1/papers/{id}")
+    Call<root1> getPaperCat1(@Path("id") String _id);
 
-    @GET("papers/cat2/{id}")
-    Call<Papers> getPaperCat2(@Path("id") String _id);
+    @GET("/api/v1/papers/{id}")
+    Call<root1> getPaperCat2(@Path("id") String _id);
 
-    @GET("papers/cat1/{id}")
-    Call<Papers> getPaperFat(@Path("id") String _id);
-
-    @Streaming
-    @GET()
-    Call<String> getPaper(@Url String id);
+    @GET("/api/v1/papers/{id}")
+    Call<root1> getPaperFat(@Path("id") String _id);
 
 }

@@ -21,7 +21,7 @@
     //Exam
     <string name="cat1">CAT 1</string>
     <string name="examTime">Exam Time</string>
-    <string name="search">Search for Subject</string>
+    <string name="search">Search by Subject Name</string>
     <string name="fav">Favourites</string>
     <string name="allSub">All Subjects</string>
     <string name="chooseYourSubject">Choose your subject.</string>
