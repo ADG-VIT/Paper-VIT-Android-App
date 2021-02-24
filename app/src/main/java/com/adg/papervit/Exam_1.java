@@ -126,7 +126,7 @@ public class Exam_1 extends AppCompatActivity {
                     paperIdArrayList.add(item.get_id());
                     paperSlotArrayList.add(item.getSlot());
                     paperUrlList.add(item.getUrl());
-                   // paperExamArrayList.add(exam);
+                    // paperExamArrayList.add(exam);
                     paperYearArrayList.add(item.getSemester());
                     paperFileNameArrayList.add(item.getFileName());
 

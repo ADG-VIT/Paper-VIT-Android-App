@@ -161,28 +161,32 @@ public class Exam extends AppCompatActivity {
             @Override
             public void onResponse(Call<root> call, Response<root> response) {
 
-                root model = response.body();
-                //Log.i("model",model.getMetadata().getTimestamp());
-                for (subject s : model.getData().getSubjects())
-                {
+                try {
+                    root model = response.body();
+                    //Log.i("model",model.getMetadata().getTimestamp());
+                    for (subject s : model.getData().getSubjects()) {
 
-                    subjectNameArrayList.add(s.getSubjectName());
-                    subjectCodeArrayList.add(s.getSubjectCode());
-                    subjectShortArrayList.add(s.getShortName());
-                    checkArrayList.add(false);
-                    subjectIdArrayList.add(s.get_id());
+                        subjectNameArrayList.add(s.getSubjectName());
+                        subjectCodeArrayList.add(s.getSubjectCode());
+                        subjectShortArrayList.add(s.getShortName());
+                        checkArrayList.add(false);
+                        subjectIdArrayList.add(s.get_id());
+                    }
+
+                    idMapping.add(subjectCodeArrayList);
+                    idMapping.add(subjectIdArrayList);
+
+                    Log.i("INFO", "Request Successful");
+
+
+
+                    RecyclerViewAdapter.showShimmer = false;
+                    favRecyclerViewAdapter.notifyDataSetChanged();
+                    allSubjectRecyclerViewAdapter.notifyDataSetChanged();
+                    getFav();
+                }catch (ArrayIndexOutOfBoundsException e){
+                    Log.i("Exception",e.getMessage());
                 }
-
-                idMapping.add(subjectCodeArrayList);
-                idMapping.add(subjectIdArrayList);
-
-                Log.i("INFO","Request Successful");
-
-                //getFav();
-
-                RecyclerViewAdapter.showShimmer = false;
-                favRecyclerViewAdapter.notifyDataSetChanged();
-                allSubjectRecyclerViewAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -347,7 +351,6 @@ public class Exam extends AppCompatActivity {
         allSubjectRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         updateAllSubjectRecyclerView();
-
         updateFavRecyclerView();
     }
 
