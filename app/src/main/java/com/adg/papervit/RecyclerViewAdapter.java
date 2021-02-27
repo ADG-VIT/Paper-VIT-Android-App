@@ -73,7 +73,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     String code = subjectCodeArrayList.get(position);
                     Integer codeIndex = Exam.idMapping.get(0).indexOf(code);
                     String subjectId = Exam.idMapping.get(1).get(codeIndex);
@@ -106,15 +105,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View view) {
 
-                    int i = Exam.subjectNameArrayList.indexOf(subjectNameArrayList.get(position));
+                    int i = Exam.subjectCodeArrayList.indexOf(subjectCodeArrayList.get(position));
 
                     if(checkArrayList.get(position))
                     {
                         //Removing
-                        int index = Exam.favSubjectNameArrayList.indexOf(subjectNameArrayList.get(position));
+                        int index = Exam.favSubjectCodeArrayList.indexOf(subjectCodeArrayList.get(position));
                         String code = subjectCodeArrayList.get(position);
                         database.deleteFav(Exam.examType,code);
-
                         Exam.favSubjectNameArrayList.remove(subjectNameArrayList.get(position));
                         Exam.favSubjectCodeArrayList.remove(subjectCodeArrayList.get(position));
                         Exam.favSubjectShortArrayList.remove(subjectShortArrayList.get(position));
@@ -130,12 +128,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         //Adding
                         String code = subjectCodeArrayList.get(position);
                         database.addFav(Exam.examType,code);
-
                         Exam.favSubjectNameArrayList.add(subjectNameArrayList.get(position));
                         Exam.favSubjectCodeArrayList.add(subjectCodeArrayList.get(position));
                         Exam.favSubjectShortArrayList.add(subjectShortArrayList.get(position));
                         Exam.favCheckArrayList.add(true);
-                        Exam.checkArrayList.set(i,true);
+                        Exam.checkArrayList.set(position,true);
                         Exam.updateFavRecyclerView();
                         Exam.updateAllSubjectRecyclerView();
                         holder.checkImage.setImageResource(R.drawable.checked);
