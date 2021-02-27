@@ -38,6 +38,7 @@ import javax.mail.internet.MimeMultipart;
 import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 import static android.content.Context.NOTIFICATION_SERVICE;
 import static android.content.Context.POWER_SERVICE;
+import static android.os.Build.ID;
 
 public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
@@ -50,9 +51,11 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     private String mFile;
     private static final String TAG = "NotificationService";
     private static final String CHANNEL_ID = "PushNotifications";
-
+    NotificationCompat.Builder notificationBuilder;
+    NotificationManager notificationManager;
 
     private ProgressDialog mProgressDialog;
+    NotificationManagerCompat notificationManagerCompat;
 
     //Constructor
     public JavaMailAPI(Context mContext, String mEmail, String mSubject, String mMessage, String mFile) {
@@ -104,6 +107,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
                 });
 
         try {
+            sendNotification("Paper Upload","Paper Uploading...");
             //Creating MimeMessage object
             MimeMessage mm = new MimeMessage(mSession);
 
@@ -138,10 +142,10 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
             Thread thread = new Thread(){
                 public void run(){
                     Looper.prepare();
-
                    // Toast.makeText(mContext, "Paper uploaded successfully!", Toast.LENGTH_LONG).show();
-                    sendNotification("Paper Upload","Paper Uploaded Successfully");
                     Looper.loop();
+                    //sendNotification1("Paper Upload","Paper Uploaded");
+
 
                 }
             };
@@ -149,15 +153,20 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
         } catch (MessagingException e) {
 
-            mProgressDialog.dismiss();
+            //mProgressDialog.dismiss();
 
             Thread thread = new Thread(){
                 public void run(){
                     Looper.prepare();
 
                     //Toast.makeText(mContext, "Error uploading paper!", Toast.LENGTH_LONG).show();
-                    sendNotification("Paper Upload","Paper upload Unsuccessful. Please try again");
+                    //sendNotification1("Paper Upload","Paper upload Unsuccessful. Please try again");
+
                     Looper.loop();
+                    //sendNotification1("Paper Upload","Paper Upload Failed");
+                    notificationBuilder.setContentText("Uploaded Failed")
+                            .setProgress(0,0,false);
+                    notificationManagerCompat.notify(0,notificationBuilder.build());
                     //mContext.startActivity(new Intent(mContext,MainActivity.class));
                 }
             };
@@ -174,7 +183,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext,CHANNEL_ID)
+        notificationBuilder = new NotificationCompat.Builder(mContext,CHANNEL_ID)
                 .setSmallIcon(R.drawable.paper_logo)
                 //.setBadgeIconType(13)
                 .setContentTitle(title)
@@ -183,14 +192,14 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
                .setColor(mContext.getResources().getColor(R.color.cardColor))
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setAutoCancel(true)
+                .setProgress(100, 10, true)
                 .setSound(defaultSoundUri)
                 .setContentIntent(pendingIntent);
 
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(mContext);
+        notificationManagerCompat = NotificationManagerCompat.from(mContext);
         notificationManagerCompat.notify(0,notificationBuilder.build());
 
     }
-
     //ANDROID 8.0 AND ABOVE
     private void createNotificationChannel(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -200,7 +209,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
-            NotificationManager notificationManager =(NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
+            notificationManager =(NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(channel);
         }
     }
