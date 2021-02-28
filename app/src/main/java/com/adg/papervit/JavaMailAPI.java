@@ -1,5 +1,6 @@
 package com.adg.papervit;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,6 +14,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
@@ -143,8 +145,13 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
                 public void run(){
                     Looper.prepare();
                    // Toast.makeText(mContext, "Paper uploaded successfully!", Toast.LENGTH_LONG).show();
+                   // Log.i("Paper Upload","Paper Uploaded Successfully");
+                    NotificationManagerCompat.from(mContext).cancelAll();
+                    notificationBuilder.setContentText("Paper Uploaded Successfully")
+                            .setProgress(0,0,false);
+                    notificationManagerCompat.notify(0,notificationBuilder.build());
                     Looper.loop();
-                    //sendNotification1("Paper Upload","Paper Uploaded");
+
 
 
                 }
@@ -158,16 +165,12 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
             Thread thread = new Thread(){
                 public void run(){
                     Looper.prepare();
-
-                    //Toast.makeText(mContext, "Error uploading paper!", Toast.LENGTH_LONG).show();
-                    //sendNotification1("Paper Upload","Paper upload Unsuccessful. Please try again");
-
-                    Looper.loop();
-                    //sendNotification1("Paper Upload","Paper Upload Failed");
-                    notificationBuilder.setContentText("Uploaded Failed")
+                    NotificationManagerCompat.from(mContext).cancelAll();
+                    notificationBuilder.setContentText("Paper Upload Failed")
                             .setProgress(0,0,false);
-                    notificationManagerCompat.notify(0,notificationBuilder.build());
-                    //mContext.startActivity(new Intent(mContext,MainActivity.class));
+                    notificationManagerCompat.notify(10,notificationBuilder.build());
+                    Looper.loop();
+
                 }
             };
             thread.start();
@@ -179,25 +182,19 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
         Intent intent = new Intent(mContext, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0 , intent, PendingIntent.FLAG_ONE_SHOT);
-
-        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         notificationBuilder = new NotificationCompat.Builder(mContext,CHANNEL_ID)
                 .setSmallIcon(R.drawable.paper_logo)
-                //.setBadgeIconType(13)
                 .setContentTitle(title)
                 .setContentText(messageBody)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                .setColor(mContext.getResources().getColor(R.color.cardColor))
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setAutoCancel(true)
-                .setProgress(100, 10, true)
-                .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
+                .setProgress(0, 0, true);
 
         notificationManagerCompat = NotificationManagerCompat.from(mContext);
-        notificationManagerCompat.notify(0,notificationBuilder.build());
+        notificationManagerCompat.notify(10,notificationBuilder.build());
 
     }
     //ANDROID 8.0 AND ABOVE

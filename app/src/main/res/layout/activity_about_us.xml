@@ -25,7 +25,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linear2">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/gokulCard"
+                android:id="@+id/harshCard"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -41,32 +41,32 @@
                     android:background="#161A2B">
 
                     <ImageView
-                        android:id="@+id/gokulImage"
+                        android:id="@+id/harshImage"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_marginTop="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ishaan" />
+                        app:srcCompat="@drawable/harsh" />
 
                     <TextView
-                        android:id="@+id/gokulName"
+                        android:id="@+id/harshName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="15dp"
                         android:fontFamily="@font/sf_pro_text_medium"
-                        android:text="Gokul Nair"
+                        android:text="Harsh Londhekar"
                         android:textColor="#fff"
-                        android:textSize="18dp"
+                        android:textSize="17dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/gokulImage" />
+                        app:layout_constraintTop_toBottomOf="@+id/harshImage" />
 
                     <TextView
-                        android:id="@+id/gokulDesig"
+                        android:id="@+id/harshDesig"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -79,7 +79,7 @@
                         android:textSize="13.5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/gokulName" />
+                        app:layout_constraintTop_toBottomOf="@id/harshName" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -90,10 +90,10 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/gokulDesig">
+                        app:layout_constraintTop_toBottomOf="@id/harshDesig">
 
                         <ImageView
-                            android:id="@+id/gokulLinkedin"
+                            android:id="@+id/harshLinkedin"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginLeft="15dp"
@@ -101,7 +101,7 @@
                             android:src="@drawable/linkedin" />
 
                         <ImageView
-                            android:id="@+id/gokulEmail"
+                            android:id="@+id/harshEmail"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginLeft="15dp"
@@ -110,7 +110,7 @@
                             android:src="@drawable/mail" />
 
                         <ImageView
-                            android:id="@+id/gokulGithub"
+                            android:id="@+id/harshGithub"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginRight="15dp"
@@ -146,7 +146,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/akshit" />
+                        app:srcCompat="@drawable/prabal" />
 
                     <TextView
                         android:id="@+id/prabalName"
@@ -156,7 +156,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="15dp"
                         android:fontFamily="@font/sf_pro_text_medium"
-                        android:text="Ridhi Gupta"
+                        android:text="Prabaljit Walia"
                         android:textColor="#fff"
                         android:textSize="18dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -365,7 +365,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="15dp"
                         android:fontFamily="@font/sf_pro_text_medium"
-                        android:text="Akshit Sandana"
+                        android:text="Akshit Sadana"
                         android:textColor="#fff"
                         android:textSize="18dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -539,7 +539,7 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/ridhiCard"
+                android:id="@+id/gokulCard"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -556,32 +556,32 @@
                     android:background="#161A2B">
 
                     <ImageView
-                        android:id="@+id/ridhiImage"
+                        android:id="@+id/gokulImage"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
                         android:layout_marginTop="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/akshit" />
+                        app:srcCompat="@drawable/gokul" />
 
                     <TextView
-                        android:id="@+id/ridhiName"
+                        android:id="@+id/gokulName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="15dp"
                         android:fontFamily="@font/sf_pro_text_medium"
-                        android:text="Ridhi Gupta"
+                        android:text="Gokul Nair"
                         android:textColor="#fff"
                         android:textSize="18dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ridhiImage" />
+                        app:layout_constraintTop_toBottomOf="@+id/gokulImage" />
 
                     <TextView
-                        android:id="@+id/ridhiDesig"
+                        android:id="@+id/gokulDesig"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -594,7 +594,7 @@
                         android:textSize="13.5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ridhiName" />
+                        app:layout_constraintTop_toBottomOf="@id/gokulName" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -605,10 +605,10 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ridhiDesig">
+                        app:layout_constraintTop_toBottomOf="@id/gokulDesig">
 
                         <ImageView
-                            android:id="@+id/ridhiLinkedin"
+                            android:id="@+id/gokulLinkedin"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginLeft="15dp"
@@ -616,7 +616,7 @@
                             android:src="@drawable/linkedin" />
 
                         <ImageView
-                            android:id="@+id/ridhiEmail"
+                            android:id="@+id/gokulEmail"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginLeft="15dp"
@@ -625,7 +625,7 @@
                             android:src="@drawable/mail" />
 
                         <ImageView
-                            android:id="@+id/ridhiGithub"
+                            android:id="@+id/gokulGithub"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginRight="15dp"

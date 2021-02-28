@@ -17,10 +17,11 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapter2.ViewHolder> {
 
-    private ArrayList<Integer> randomImage = new ArrayList<Integer>();
+    private ArrayList<Integer> randomImage = new ArrayList<>();
     private ArrayList<String> courseSlot;
     private ArrayList<String> courseDesc;
     private Context context;
@@ -60,8 +61,9 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
             holder.randomImageView.setBackground(null);
             holder.courseSlotTextView.setBackground(null);
             holder.courseDescTextView.setBackground(null);
-
-            holder.randomImageView.setImageResource(randomImage.get(position % 2));
+            Random random = new Random();
+            int a =random.nextInt(11);
+            holder.randomImageView.setImageResource(randomImage.get(position%10));
             holder.courseSlotTextView.setBackgroundResource(R.drawable.course_code_background);
             holder.courseSlotTextView.setText(courseSlot.get(position));
             holder.courseDescTextView.setText(courseDesc.get(position));
@@ -103,9 +105,16 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            randomImage.add(R.drawable.paper_logo);
-            randomImage.add(R.drawable.paper_logo);
-
+            randomImage.add(R.drawable.paper1);
+            randomImage.add(R.drawable.paper2);
+            randomImage.add(R.drawable.paper3);
+            randomImage.add(R.drawable.paper4);
+            randomImage.add(R.drawable.paper5);
+            randomImage.add(R.drawable.paper6);
+            randomImage.add(R.drawable.paper7);
+            randomImage.add(R.drawable.paper8);
+            randomImage.add(R.drawable.paper9);
+            randomImage.add(R.drawable.paper10);
 
             courseSlotTextView = itemView.findViewById(R.id.courseSlotTextView);
             courseDescTextView = itemView.findViewById(R.id.courseDescTextView);
