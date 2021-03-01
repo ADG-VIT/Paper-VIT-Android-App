@@ -197,6 +197,11 @@ public class Exam_2 extends AppCompatActivity {
                     // we are getting input stream from url
                     // and storing it in our variable.
                     inputStream = new BufferedInputStream(urlConnection.getInputStream());
+                    progressDialog.dismiss();
+                    return inputStream;
+                }
+                else {
+                    return null;
                 }
 
             } catch (IOException e) {
@@ -205,13 +210,34 @@ public class Exam_2 extends AppCompatActivity {
                 e.printStackTrace();
                 return null;
             }
-            return inputStream;
+
         }
 
         @Override
         protected void onPostExecute(InputStream inputStream) {
             pdfView.fromStream(inputStream).load();
-            progressDialog.dismiss();
+            if(inputStream==null){
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Dialog dialog = new Dialog(Exam_2.this);
+                        dialog.setCancelable(false);
+                        dialog.setContentView(R.layout.alert);
+                        dialog.show();
+
+                        Button button = dialog.findViewById(R.id.home);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                progressDialog.dismiss();
+                                startActivity(new Intent(Exam_2.this,MainActivity.class));
+                            }
+                        });
+
+                    }
+                }, 2000);
+
+            }
         }
     }
 
@@ -260,35 +286,7 @@ public class Exam_2 extends AppCompatActivity {
             }
         }
     }
-
-    /*private void savePdf(String body, String filename) {
-
-        final File downloadPath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + filename);
-        byte[] pdfAsBytes = Base64.decode(body, Base64.DEFAULT);
-        FileOutputStream os = null;
-        try {
-            os = new FileOutputStream(downloadPath, false);
-            os.write(pdfAsBytes);
-            os.flush();
-            os.close();
-
-            downloadPdf.setText(getString(R.string.view));
-            downloadPdf.setAlpha(1f);
-            downloadPdf.setEnabled(true);
-            paperDownloaded = true;
-            Toast.makeText(this, "Paper saved at " + downloadPath.getAbsolutePath(), Toast.LENGTH_LONG).show();
-
-            Log.i("INFO", "File saved successfully");
-
-        } catch (FileNotFoundException e) {
-            Log.i("INFO", e.toString());
-        } catch (IOException e) {
-            Log.i("INFO", e.toString());
-            Log.i("INFO", "IOException");
-        }
-
-    }*/
-    public void savePdf(String url,String title){
+    private void savePdf(String url,String title){
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         request.setTitle(title);
         String subTitle = filename.replace("/","_");

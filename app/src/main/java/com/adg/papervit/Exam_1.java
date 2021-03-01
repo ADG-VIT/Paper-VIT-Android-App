@@ -165,9 +165,11 @@ public class Exam_1 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
+        //super.onBackPressed();
         RecyclerViewAdapter.showShimmer = false;
+        Intent intent = new Intent(this,Exam.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
 
     }
 }

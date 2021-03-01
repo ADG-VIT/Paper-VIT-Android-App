@@ -36,7 +36,6 @@ public class AboutUs extends AppCompatActivity {
     private String prabalGithubLink ="https://github.com/prabal4546" ;
     private String prabalMailLink = "prabaljit.walia2019@vitstudent.ac.in";
 
-    private CardView privacyPolicyCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +46,11 @@ public class AboutUs extends AppCompatActivity {
         ishaanLinkedIn = findViewById(R.id.ishaanLinkedin);
         ishaanGitHub = findViewById(R.id.ishaanGithub);
         ishaanMail = findViewById(R.id.ishaanEmail);
+
         akshitLinkedIn = findViewById(R.id.akshitLinkedin);
         akshitGitHub = findViewById(R.id.akshitGithub);
         akshitMail = findViewById(R.id.akshitEmail);
+
         panshulLinkedin = findViewById(R.id.panshulLinkedin);
         panshulGithub = findViewById(R.id.panshulGithub);
         panshulMail = findViewById(R.id.panshulEmail);
