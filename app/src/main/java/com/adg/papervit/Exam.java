@@ -73,6 +73,7 @@ public class Exam extends AppCompatActivity {
     private String cat1_action = "android.intent.action.CAT1";
     private String cat2_action = "android.intent.action.CAT2";
     private String fat_action = "android.intent.action.FAT";
+    Call<root> call;
 
     public static int filterOption = 0;
 
@@ -129,7 +130,7 @@ public class Exam extends AppCompatActivity {
 
         examTypeEditText.setText(examType);
 
-        Call<root> call;
+
 
         subjectNameArrayList = new ArrayList<>();
         subjectCodeArrayList = new ArrayList<>();
@@ -163,22 +164,15 @@ public class Exam extends AppCompatActivity {
 
                 try {
                     root model = response.body();
-                    //Log.i("model",model.getMetadata().getTimestamp());
                     for (subject s : model.getData().getSubjects()) {
-
                         subjectNameArrayList.add(s.getSubjectName());
                         subjectCodeArrayList.add(s.getSubjectCode());
                         subjectShortArrayList.add(s.getShortName());
                         checkArrayList.add(false);
                         subjectIdArrayList.add(s.get_id());
                     }
-
                     idMapping.add(subjectCodeArrayList);
                     idMapping.add(subjectIdArrayList);
-
-                    Log.i("INFO", "Request Successful");
-
-
 
                     RecyclerViewAdapter.showShimmer = false;
                     favRecyclerViewAdapter.notifyDataSetChanged();
@@ -403,6 +397,8 @@ public class Exam extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        call.cancel();
+        RecyclerViewAdapter.showShimmer = false;
         Intent intent = new Intent(this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

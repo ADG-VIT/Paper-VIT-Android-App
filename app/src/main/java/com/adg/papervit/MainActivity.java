@@ -18,8 +18,8 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CardView cat1CardView, cat2CardView, fatCardView, aboutUs;
-    private ImageView uploadButton;
+    private CardView cat1CardView, cat2CardView, fatCardView, uploadButton;
+    private ImageView settings;
     private int READ_STORAGE = 100;
     private int WRITE_STORAGE = 101;
 
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         cat1CardView = findViewById(R.id.cat1CardView);
         cat2CardView = findViewById(R.id.cat2CardView);
         fatCardView = findViewById(R.id.fatCardView);
-        uploadButton = findViewById(R.id.uploadButton);
-        aboutUs = findViewById(R.id.aboutUs);
+        settings = (ImageView) findViewById(R.id.uploadButton1);
+        uploadButton = findViewById(R.id.aboutUs);
 
         if ((checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))
         {
@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
             requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},WRITE_STORAGE);
         }else {
 
-            aboutUs.setOnClickListener(new View.OnClickListener() {
+            settings.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, AboutUs.class);
+                    Intent intent = new Intent(MainActivity.this, Settings.class);
                     startActivity(intent);
                 }
             });
@@ -111,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
                 requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},WRITE_STORAGE);
             }
             else {
-                aboutUs.setOnClickListener(new View.OnClickListener() {
+                settings.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, AboutUs.class);
+                        Intent intent = new Intent(MainActivity.this, Settings.class);
                         startActivity(intent);
                     }
                 });
@@ -174,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
                 requestPermissions(new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},WRITE_STORAGE);
             }
             else {
-                aboutUs.setOnClickListener(new View.OnClickListener() {
+                settings.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, AboutUs.class);
+                        Intent intent = new Intent(MainActivity.this, Settings.class);
                         startActivity(intent);
                     }
                 });

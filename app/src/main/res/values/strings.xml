@@ -50,7 +50,7 @@
     <string name="message2">CHANGE PASSWORD</string>
     <string name="message3">ADD A PAPER</string>
     <string name="logout">LOGOUT</string>
-    <string name="aboutUs">ABOUT US</string>
+    <string name="aboutUs">UPLOAD PAPER</string>
 
     //Upload
     <string name="upload">Upload</string>
@@ -73,4 +73,10 @@
     <string name="title">Oh shucks!</string>
     <string name="alertMessage">Slow or no internet connection\nPlease check your internet connection</string>
     <string name="home">OK</string>
+    <string name="title_activity_settings">Settings</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
