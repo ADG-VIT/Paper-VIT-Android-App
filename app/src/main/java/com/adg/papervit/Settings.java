@@ -6,11 +6,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Toast;
 
+import static com.adg.papervit.Exam.context;
+import static java.lang.String.format;
+
 public class Settings extends AppCompatActivity {
-    private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate;
+    private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms;
     private String appurl = "https://play.google.com/store/apps/details?id=com.adgvit.papervit";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class Settings extends AppCompatActivity {
         facebook = findViewById(R.id.facebookreferSettings);
         instagram = findViewById(R.id.instagramSettings);
         rate = findViewById(R.id.rateSettings);
+        terms = findViewById(R.id.termsSettings);
 
         aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +41,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_EMAIL,new String[] {"panshuljindal@gmail.com"});
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[] {"appledevelopersgroup@gmail.com"});
                 intent.putExtra(Intent.EXTRA_SUBJECT,"");
                 intent.putExtra(Intent.EXTRA_TEXT,"");
                 intent.setType("message/rfc822");
@@ -49,18 +54,37 @@ public class Settings extends AppCompatActivity {
             public void onClick(View v) {
                 Intent shareIntent =   new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                String text = "";
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,"");
-                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT,text+appurl);
+                String text = "With PaperVIT by your side, ab "
+                        +Html.fromHtml("<b>"+"back"+"</b>")+" nhi lagegi!!\n"+
+                        "Discover frequently asked questions, question paper pattern and model questions through old question papers available on PaperVIT.\n" +
+                        "Jab "+Html.fromHtml("<b>"+"6 hazar"+"</b>")+" ki ho baat, to yeh bhi try karlo yaar.";
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
                 v.getContext().startActivity(Intent.createChooser(shareIntent,"Share via"));
             }
         });
+        rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(appurl);
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                v.getContext().startActivity(intent);
+            }
+        });
 
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://tnc.adgvit.com/papervit");
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                v.getContext().startActivity(intent);
+            }
+        });
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Uri uri = Uri.parse(appurl);
+                Uri uri = Uri.parse("https://pp.adgvit.com/papervit");
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 v.getContext().startActivity(intent);
             }

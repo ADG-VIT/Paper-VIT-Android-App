@@ -21,10 +21,10 @@
     //Exam
     <string name="cat1">CAT 1</string>
     <string name="examTime">Exam Time</string>
-    <string name="search">Search by Subject Name</string>
+    <string name="search">Search by Course Name</string>
     <string name="fav">Favourites</string>
-    <string name="allSub">All Subjects</string>
-    <string name="chooseYourSubject">Choose your subject.</string>
+    <string name="allSub">All Courses</string>
+    <string name="chooseYourSubject">Choose your Course.</string>
 
     //Exam 1
     <string name="subShort">SIN</string>
@@ -79,4 +79,8 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+
+    <string name="textRefer">With PaperVIT by your side, ab <b>back</b> nhi lagegi!!
+Discover frequently asked questions, question paper pattern and model questions through old question papers available on PaperVIT.
+        Jab <b>6 hazar</b> ki ho baat, to yeh bhi try karlo yaar.</string>
 </resources>

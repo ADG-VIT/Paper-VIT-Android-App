@@ -211,17 +211,17 @@ public class Exam extends AppCompatActivity {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
-                        if(item.toString().equals("Subject")){
+                        if(item.toString().equals("Course Name")){
                             filterOption=0;
-                            searchEditText.setHint("Search by Subject Name");
+                            searchEditText.setHint("Search by Course Name");
                         }
-                        else if(item.toString().equals("Short")){
+                        else if(item.toString().equals("Course Short Name")){
                             filterOption=1;
-                            searchEditText.setHint("Search by Subject Short");
+                            searchEditText.setHint("Search by Course Short Name");
                         }
-                        else if(item.toString().equals("Subject Code")){
+                        else if(item.toString().equals("Course Code")){
                             filterOption=2;
-                            searchEditText.setHint("Search by Subject Code");
+                            searchEditText.setHint("Search by Course Code");
                         }
                         else {
                             Toast.makeText(Exam.this, "Please try again", Toast.LENGTH_SHORT).show();
