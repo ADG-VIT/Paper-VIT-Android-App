@@ -116,26 +116,24 @@ public class Exam_1 extends AppCompatActivity {
         call.enqueue(new Callback<root1>() {
             @Override
             public void onResponse(Call<root1> call, Response<root1> response) {
+                try {
 
-                root1 model = response.body();
+                    root1 model = response.body();
 
-                for (paperObject item : model.getData().getPapers())
-                {
+                    for (paperObject item : model.getData().getPapers()) {
+                        paperIdArrayList.add(item.get_id());
+                        paperSlotArrayList.add(item.getSlot());
+                        paperUrlList.add(item.getUrl());
+                        // paperExamArrayList.add(exam);
+                        paperYearArrayList.add(item.getSemester());
+                        paperFileNameArrayList.add(item.getFileName());
 
-
-                    paperIdArrayList.add(item.get_id());
-                    paperSlotArrayList.add(item.getSlot());
-                    paperUrlList.add(item.getUrl());
-                    // paperExamArrayList.add(exam);
-                    paperYearArrayList.add(item.getSemester());
-                    paperFileNameArrayList.add(item.getFileName());
-
+                    }
+                    RecyclerViewAdapter2.showShimmer = false;
+                    recyclerViewAdapter.notifyDataSetChanged();
+                }catch (NullPointerException e){
+                    Log.i("Papers","No Papers");
                 }
-
-                Log.i("INFO","Request Successful" + paperSlotArrayList.get(0));
-
-                RecyclerViewAdapter2.showShimmer = false;
-                recyclerViewAdapter.notifyDataSetChanged();
 
             }
 
