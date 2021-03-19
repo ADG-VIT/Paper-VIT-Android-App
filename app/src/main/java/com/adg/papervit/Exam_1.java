@@ -129,6 +129,22 @@ public class Exam_1 extends AppCompatActivity {
                         paperFileNameArrayList.add(item.getFileName());
 
                     }
+                    if(paperIdArrayList.isEmpty()){
+                        Dialog dialog = new Dialog(Exam_1.this);
+                        dialog.setCancelable(false);
+                        dialog.setContentView(R.layout.nopaper);
+                        dialog.show();
+
+                        Button button = dialog.findViewById(R.id.homeButton);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Exam_1.this, Exam.class);
+                                startActivity(intent);
+                            }
+                        });
+                    }
+
                     RecyclerViewAdapter2.showShimmer = false;
                     recyclerViewAdapter.notifyDataSetChanged();
                 }catch (NullPointerException e){

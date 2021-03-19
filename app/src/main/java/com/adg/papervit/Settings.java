@@ -55,10 +55,9 @@ public class Settings extends AppCompatActivity {
                 Intent shareIntent =   new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,"");
-                String text = "With PaperVIT by your side, ab "
-                        +Html.fromHtml("<b>"+"back"+"</b>")+" nhi lagegi!!\n"+
+                String text = "With PaperVIT by your side, ab " +"*back*"+" nhi lagegi!!\n"+
                         "Discover frequently asked questions, question paper pattern and model questions through old question papers available on PaperVIT.\n" +
-                        "Jab "+Html.fromHtml("<b>"+"6 hazar"+"</b>")+" ki ho baat, to yeh bhi try karlo yaar.";
+                        "Jab "+"*6 hazar*"+" ki ho baat, to yeh bhi try karlo yaar.";
                 shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
                 v.getContext().startActivity(Intent.createChooser(shareIntent,"Share via"));
             }
