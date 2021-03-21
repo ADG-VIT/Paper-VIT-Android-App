@@ -116,40 +116,26 @@ public class Exam_1 extends AppCompatActivity {
         call.enqueue(new Callback<root1>() {
             @Override
             public void onResponse(Call<root1> call, Response<root1> response) {
-                try {
 
-                    root1 model = response.body();
+                root1 model = response.body();
 
-                    for (paperObject item : model.getData().getPapers()) {
-                        paperIdArrayList.add(item.get_id());
-                        paperSlotArrayList.add(item.getSlot());
-                        paperUrlList.add(item.getUrl());
-                        // paperExamArrayList.add(exam);
-                        paperYearArrayList.add(item.getSemester());
-                        paperFileNameArrayList.add(item.getFileName());
+                for (paperObject item : model.getData().getPapers())
+                {
 
-                    }
-                    if(paperIdArrayList.isEmpty()){
-                        Dialog dialog = new Dialog(Exam_1.this);
-                        dialog.setCancelable(false);
-                        dialog.setContentView(R.layout.nopaper);
-                        dialog.show();
 
-                        Button button = dialog.findViewById(R.id.homeButton);
-                        button.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(Exam_1.this, Exam.class);
-                                startActivity(intent);
-                            }
-                        });
-                    }
+                    paperIdArrayList.add(item.get_id());
+                    paperSlotArrayList.add(item.getSlot());
+                    paperUrlList.add(item.getUrl());
+                    // paperExamArrayList.add(exam);
+                    paperYearArrayList.add(item.getSemester());
+                    paperFileNameArrayList.add(item.getFileName());
 
-                    RecyclerViewAdapter2.showShimmer = false;
-                    recyclerViewAdapter.notifyDataSetChanged();
-                }catch (NullPointerException e){
-                    Log.i("Papers","No Papers");
                 }
+
+                Log.i("INFO","Request Successful" + paperSlotArrayList.get(0));
+
+                RecyclerViewAdapter2.showShimmer = false;
+                recyclerViewAdapter.notifyDataSetChanged();
 
             }
 
@@ -179,11 +165,9 @@ public class Exam_1 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
+        super.onBackPressed();
+
         RecyclerViewAdapter.showShimmer = false;
-        Intent intent = new Intent(this,Exam.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
 
     }
 }
