@@ -57,7 +57,7 @@ public class Settings extends AppCompatActivity {
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,"");
                 String text = "With PaperVIT by your side, ab " +"*back*"+" nhi lagegi!!\n"+
                         "Discover frequently asked questions, question paper pattern and model questions through old question papers available on PaperVIT.\n" +
-                        "Jab "+"*6 hazar*"+" ki ho baat, to yeh bhi try karlo yaar.";
+                        "Jab "+"*6 hazar*"+" ki ho baat, to yeh bhi try karlo yaar.\n"+"App Link: "+appurl;
                 shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
                 v.getContext().startActivity(Intent.createChooser(shareIntent,"Share via"));
             }

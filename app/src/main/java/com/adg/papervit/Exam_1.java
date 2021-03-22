@@ -32,6 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Exam_1 extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    Call<root1> call;
     private RecyclerViewAdapter2 recyclerViewAdapter;
     private ArrayList<Integer> randomImage = new ArrayList<Integer>();
     private ArrayList<String> courseSlot = new ArrayList<String>();
@@ -98,7 +99,7 @@ public class Exam_1 extends AppCompatActivity {
 
         API api = retrofit.create(API.class);
 
-        Call<root1> call;
+
 
         if (Exam.examType.equals(cat2)) {
 
@@ -117,26 +118,39 @@ public class Exam_1 extends AppCompatActivity {
             @Override
             public void onResponse(Call<root1> call, Response<root1> response) {
 
-                root1 model = response.body();
+                try {
 
-                for (paperObject item : model.getData().getPapers())
-                {
+                    root1 model = response.body();
 
+                    for (paperObject item : model.getData().getPapers()) {
+                        paperIdArrayList.add(item.get_id());
+                        paperSlotArrayList.add(item.getSlot());
+                        paperUrlList.add(item.getUrl());
+                        // paperExamArrayList.add(exam);
+                        paperYearArrayList.add(item.getSemester());
+                        paperFileNameArrayList.add(item.getFileName());
 
-                    paperIdArrayList.add(item.get_id());
-                    paperSlotArrayList.add(item.getSlot());
-                    paperUrlList.add(item.getUrl());
-                    // paperExamArrayList.add(exam);
-                    paperYearArrayList.add(item.getSemester());
-                    paperFileNameArrayList.add(item.getFileName());
+                    }
+                    if (paperIdArrayList.isEmpty()) {
+                        Dialog dialog = new Dialog(Exam_1.this);
+                        dialog.setCancelable(false);
+                        dialog.setContentView(R.layout.nopaper);
+                        dialog.show();
 
+                        Button button = dialog.findViewById(R.id.homeButton);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Exam_1.this, Exam.class);
+                                startActivity(intent);
+                            }
+                        });
+                    }
+                    RecyclerViewAdapter2.showShimmer = false;
+                    recyclerViewAdapter.notifyDataSetChanged();
+                } catch (NullPointerException e) {
+                    Log.i("Papers", "No Papers");
                 }
-
-                Log.i("INFO","Request Successful" + paperSlotArrayList.get(0));
-
-                RecyclerViewAdapter2.showShimmer = false;
-                recyclerViewAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -165,9 +179,12 @@ public class Exam_1 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //super.onBackPressed();
 
+        call.cancel();
         RecyclerViewAdapter.showShimmer = false;
-
+        Intent intent = new Intent(this,Exam.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }

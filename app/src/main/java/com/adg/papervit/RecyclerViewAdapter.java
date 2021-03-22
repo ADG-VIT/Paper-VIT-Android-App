@@ -73,6 +73,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             holder.item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    try {
                     String code = subjectCodeArrayList.get(position);
                     Integer codeIndex = Exam.idMapping.get(0).indexOf(code);
                     String subjectId = Exam.idMapping.get(1).get(codeIndex);
@@ -89,6 +90,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
+                }catch (ArrayIndexOutOfBoundsException e){
+                    Log.i("Papers","No Papers");
+                }
                 }
             });
 
