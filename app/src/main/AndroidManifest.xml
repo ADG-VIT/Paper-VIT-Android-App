@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.adg.papervit">
+    package="com.adgvit.papervit">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,39 +15,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Settings"
+        <activity android:name="com.adgvit.papervit.Settings"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".FullView"
+            android:name="com.adgvit.papervit.FullView"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".AboutUs"
+            android:name="com.adgvit.papervit.AboutUs"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Upload"
+            android:name="com.adgvit.papervit.Upload"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Exam_2"
+            android:name="com.adgvit.papervit.Exam_2"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Exam_1"
+            android:name="com.adgvit.papervit.Exam_1"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Exam"
+            android:name="com.adgvit.papervit.Exam"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.adgvit.papervit.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.adgvit.papervit.SplashScreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>

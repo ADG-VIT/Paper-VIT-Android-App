@@ -8,8 +8,8 @@
 
         <intent
             android:action = "android.intent.action.CAT1"
-            android:targetClass = "com.adg.papervit.Exam"
-            android:targetPackage = "com.adg.papervit"/>
+            android:targetClass = "com.adgvit.papervit.Exam"
+            android:targetPackage = "com.adgvit.papervit"/>
 
         <categories android:name="android.shortcut.conversation"/>
 
@@ -23,8 +23,8 @@
 
         <intent
             android:action = "android.intent.action.CAT2"
-            android:targetClass = "com.adg.papervit.Exam"
-            android:targetPackage = "com.adg.papervit"/>
+            android:targetClass = "com.adgvit.papervit.Exam"
+            android:targetPackage = "com.adgvit.papervit"/>
 
         <categories android:name="android.shortcut.conversation"/>
 
@@ -38,8 +38,8 @@
 
         <intent
             android:action = "android.intent.action.FAT"
-            android:targetClass = "com.adg.papervit.Exam"
-            android:targetPackage = "com.adg.papervit"/>
+            android:targetClass = "com.adgvit.papervit.Exam"
+            android:targetPackage = "com.adgvit.papervit"/>
 
         <categories android:name="android.shortcut.conversation"/>
 
@@ -53,8 +53,8 @@
 
         <intent
             android:action = "android.intent.action.UPLOAD"
-            android:targetClass = "com.adg.papervit.Upload"
-            android:targetPackage = "com.adg.papervit"/>
+            android:targetClass = "com.adgvit.papervit.Upload"
+            android:targetPackage = "com.adgvit.papervit"/>
 
         <categories android:name="android.shortcut.conversation"/>
 
