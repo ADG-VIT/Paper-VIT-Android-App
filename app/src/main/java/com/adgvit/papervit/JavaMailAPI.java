@@ -1,16 +1,11 @@
 package com.adgvit.papervit;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Build;
+import android.os.Handler;
 import android.os.Looper;
-
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
+import android.widget.Toast;
 
 import java.util.Properties;
 
@@ -28,8 +23,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import static android.content.Context.NOTIFICATION_SERVICE;
-
 public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
 
     private Context mContext;
@@ -39,13 +32,9 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     private String mSubject;
     private String mMessage;
     private String mFile;
-    private static final String TAG = "NotificationService";
-    private static final String CHANNEL_ID = "PushNotifications";
-    NotificationCompat.Builder notificationBuilder;
-    NotificationManager notificationManager;
+
 
     private ProgressDialog mProgressDialog;
-    NotificationManagerCompat notificationManagerCompat;
 
     //Constructor
     public JavaMailAPI(Context mContext, String mEmail, String mSubject, String mMessage, String mFile) {
@@ -60,7 +49,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     protected void onPreExecute() {
         super.onPreExecute();
         //Show progress dialog while sending email
-       // mProgressDialog = ProgressDialog.show(mContext,"Uploading Paper", "Please wait...",false,false);
+        mProgressDialog = ProgressDialog.show(mContext,"Uploading Paper", "Please wait...",false,false);
     }
 
     @Override
@@ -75,9 +64,7 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
     @Override
     protected Void doInBackground(Void... params) {
         //Creating properties
-        mContext.startActivity(new Intent(mContext,MainActivity.class));
         Properties props = new Properties();
-        createNotificationChannel();
 
         //Configuring properties for gmail
         //If you are not using gmail you may need to change the values
@@ -97,7 +84,6 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
                 });
 
         try {
-            sendNotification("Paper Upload","Paper Uploading...");
             //Creating MimeMessage object
             MimeMessage mm = new MimeMessage(mSession);
 
@@ -127,75 +113,34 @@ public class JavaMailAPI extends AsyncTask<Void,Void,Void>  {
             //Sending email
             Transport.send(mm);
 
-            //mProgressDialog.dismiss();
+            mProgressDialog.dismiss();
 
             Thread thread = new Thread(){
                 public void run(){
                     Looper.prepare();
-                   // Toast.makeText(mContext, "Paper uploaded successfully!", Toast.LENGTH_LONG).show();
-                   // Log.i("Paper Upload","Paper Uploaded Successfully");
-                    NotificationManagerCompat.from(mContext).cancelAll();
-                    notificationBuilder.setContentText("Paper Uploaded Successfully")
-                            .setProgress(0,0,false);
-                    notificationManagerCompat.notify(0,notificationBuilder.build());
+
+                    Toast.makeText(mContext, "Paper uploaded successfully!", Toast.LENGTH_LONG).show();
                     Looper.loop();
-
-
-
                 }
             };
             thread.start();
 
         } catch (MessagingException e) {
 
-            //mProgressDialog.dismiss();
+            mProgressDialog.dismiss();
 
             Thread thread = new Thread(){
                 public void run(){
                     Looper.prepare();
-                    NotificationManagerCompat.from(mContext).cancelAll();
-                    notificationBuilder.setContentText("Paper Upload Failed")
-                            .setProgress(0,0,false);
-                    notificationManagerCompat.notify(10,notificationBuilder.build());
-                    Looper.loop();
 
+                    Toast.makeText(mContext, "Error uploading paper!", Toast.LENGTH_LONG).show();
+
+                    Looper.loop();
                 }
             };
             thread.start();
             e.printStackTrace();
         }
         return null;
-    }
-    private void sendNotification(String title, String messageBody) {
-
-        Intent intent = new Intent(mContext, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-        notificationBuilder = new NotificationCompat.Builder(mContext,CHANNEL_ID)
-                .setSmallIcon(R.drawable.paper_logo)
-                .setContentTitle(title)
-                .setContentText(messageBody)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-               .setColor(mContext.getResources().getColor(R.color.cardColor))
-                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                .setAutoCancel(true)
-                .setProgress(0, 0, true);
-
-        notificationManagerCompat = NotificationManagerCompat.from(mContext);
-        notificationManagerCompat.notify(10,notificationBuilder.build());
-
-    }
-    //ANDROID 8.0 AND ABOVE
-    private void createNotificationChannel(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "MyNotifications";
-            String description = "All MyNotifications";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
-            notificationManager =(NotificationManager) mContext.getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.createNotificationChannel(channel);
-        }
     }
 }
