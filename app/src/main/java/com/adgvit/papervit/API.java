@@ -34,4 +34,7 @@ public interface API {
     @POST("/api/v1/public/paper")
     Call<ServerResponse> upload(@Part MultipartBody.Part file);
 
+    @GET("")
+    Call<ServerResponse> hello();
+
 }
