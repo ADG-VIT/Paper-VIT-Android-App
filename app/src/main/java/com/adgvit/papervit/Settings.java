@@ -1,12 +1,17 @@
 package com.adgvit.papervit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import static java.lang.String.format;
 
@@ -17,6 +22,16 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.backgroundLight));
+
+        Toolbar toolbar = findViewById(R.id.toolbarSetting);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         aboutUs = findViewById(R.id.aboutUsSettings);
         feedback = findViewById(R.id.feedbackSettings);
         refer = findViewById(R.id.referSettings);
@@ -25,7 +40,7 @@ public class Settings extends AppCompatActivity {
         facebook = findViewById(R.id.facebookreferSettings);
         instagram = findViewById(R.id.instagramSettings);
         rate = findViewById(R.id.rateSettings);
-        terms = findViewById(R.id.termsSettings);
+        //terms = findViewById(R.id.termsSettings);
 
         aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,14 +83,14 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        terms.setOnClickListener(new View.OnClickListener() {
+        /*terms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("https://tnc.adgvit.com/papervit");
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 v.getContext().startActivity(intent);
             }
-        });
+        });*/
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,4 +128,14 @@ public class Settings extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home)
+        {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

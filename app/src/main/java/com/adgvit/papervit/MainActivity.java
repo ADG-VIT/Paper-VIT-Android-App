@@ -6,11 +6,14 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +27,19 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+
+        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
         setContentView(R.layout.activity_main);
+
+
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        //int colorCodeDark = Color.parseColor("#F7F7FC");
+        //int colorCodeDark = Color.parseColor(getResources().getColor(R.color.colorPrimaryTheme));
+        //window.setStatusBarColor(colorCodeDark);
+        window.setStatusBarColor(getResources().getColor(R.color.backgroundLight));
+
 
         cat1CardView = findViewById(R.id.cat1CardView);
         cat2CardView = findViewById(R.id.cat2CardView);

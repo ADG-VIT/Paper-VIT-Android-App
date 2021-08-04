@@ -5,31 +5,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="?attr/colorPrimary"
     tools:context=".Exam">
 
-    <TextView
-        android:id="@+id/messageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/sf_pro_text_medium"
-        android:text="@string/chooseYourSubject"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarExam"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Exams"
+            android:textColor="@color/buttons_blue"
+            android:textSize="18sp"
+            android:gravity="center_vertical"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/messageTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarExam">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -39,11 +43,12 @@
                 android:id="@+id/examTypeEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/sf_pro_display_bold"
-                android:text="@string/cat1"
-                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:textStyle="bold"
+                android:text="Subjects"
+                android:textColor="?attr/colorPrimaryDark"
                 android:textSize="32dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,10 +57,10 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sf_pro_text_medium"
-                android:text="@string/examTime"
-                android:textColor="@color/white"
-                android:textSize="13dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/chooseSubject"
+                android:textColor="?attr/colorPrimaryDark"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="@+id/examTypeEditText"
                 app:layout_constraintTop_toBottomOf="@+id/examTypeEditText" />
 
@@ -80,18 +85,18 @@
                     android:layout_height="15dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/search" />
+                    android:src="@drawable/ic_baseline_search_24" />
 
                 <EditText
                     android:id="@+id/searchEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
+                    android:background="?attr/colorPrimary"
                     android:fontFamily="@font/sf_pro_text_regular"
                     android:hint="@string/search"
                     android:inputType="textCapWords"
-                    android:textColor="@color/searchIcon"
-                    android:textColorHint="@color/searchIcon"
+                    android:textColor="?attr/colorPrimaryDark"
+                    android:textColorHint="?attr/colorPrimaryDark"
                     android:textSize="15dp" />
 
             </LinearLayout>
@@ -100,11 +105,11 @@
                 android:id="@+id/favTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/sf_pro_text_medium"
                 android:text="@string/fav"
-                android:textColor="@color/white"
+                android:textColor="?attr/colorPrimaryDark"
                 android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout2"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
@@ -122,11 +127,11 @@
                 android:id="@+id/allSubjectTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/sf_pro_text_medium"
                 android:text="@string/allSub"
-                android:textColor="@color/white"
+                android:textColor="?attr/colorPrimaryDark"
                 android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout2"
                 app:layout_constraintTop_toBottomOf="@+id/favRecyclerView" />

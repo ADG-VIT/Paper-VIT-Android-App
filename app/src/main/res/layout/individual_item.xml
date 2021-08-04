@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@android:color/transparent"
     android:paddingHorizontal="5dp"
@@ -32,8 +33,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/itemCardView"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:backgroundTint="#161A2B"
+                android:layout_height="235dp"
+                android:backgroundTint="?attr/colorAccent"
                 app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -59,30 +60,31 @@
 
                     <TextView
                         android:id="@+id/courseDescTextView"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
                         android:background="@drawable/shimmer_background_subject"
                         android:fontFamily="@font/sf_pro_text_medium"
                         android:paddingVertical="1dp"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/white"
+                        android:textColor="?attr/colorPrimaryDark"
                         android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintWidth_percent="0.65" />
+                        app:layout_constraintTop_toBottomOf="@+id/randomImageView" />
 
                     <TextView
                         android:id="@+id/courseSlotTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/shimmer_background_subject"
                         android:fontFamily="@font/sf_pro_text_medium"
                         android:padding="3dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/buttons_blue"
+                        android:backgroundTint="@color/course_code_background"
                         android:textSize="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/courseDescTextView"
                         app:layout_constraintWidth_percent="0.25" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

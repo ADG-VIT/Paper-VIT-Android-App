@@ -4,39 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/colorPrimary"
     tools:context=".Exam_1">
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/sf_pro_text_medium"
-        android:text="@string/btmMsg1"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSubjects"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Subjects"
+            android:textColor="@color/buttons_blue"
+            android:textSize="18sp"
+            android:gravity="center_vertical"/>
+    </androidx.appcompat.widget.Toolbar>
 
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarSubjects">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,22 +49,33 @@
                 android:id="@+id/subjectShortTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/sf_pro_display_bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textStyle="bold"
                 android:text="@string/subShort"
-                android:textColor="@color/white"
-                android:textSize="32dp" />
+                android:textColor="?attr/colorPrimaryDark"
+                android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/subjectNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/sf_pro_text_medium"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textStyle="italic"
                 android:text="@string/subName"
-                android:textColor="@color/white"
-                android:textSize="13dp" />
+                android:textColor="?attr/colorPrimaryDark"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textpreview"
+                android:textSize="15sp"
+                android:textColor="?attr/colorPrimaryDark"
+                android:fontFamily="@font/poppins_extralight"
+                android:layout_marginLeft="20dp"/>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -115,6 +129,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="30dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="10dp"
                 android:paddingRight="10dp" />

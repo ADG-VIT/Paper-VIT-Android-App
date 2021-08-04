@@ -98,11 +98,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
             if(checkArrayList.get(position))
             {
-                holder.checkImage.setImageResource(R.drawable.checked);
+                holder.checkImage.setImageResource(R.drawable.fav_fill);
             }
             else
             {
-                holder.checkImage.setImageResource(R.drawable.not_checked);
+                holder.checkImage.setImageResource(R.drawable.fav_unfill);
             }
 
             holder.checkImage.setOnClickListener(new View.OnClickListener() {

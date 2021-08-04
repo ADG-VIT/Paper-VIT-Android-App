@@ -4,7 +4,7 @@
     <string name="na">null</string>
 
     //Splash Screen
-    <string name="paper">Paper</string>
+    <string name="paper">Exams</string>
     <string name="by">BY ADG VIT</string>
     <string name="splashMessage">We have some questions for you.</string>
 
@@ -20,11 +20,12 @@
 
     //Exam
     <string name="cat1">CAT 1</string>
-    <string name="examTime">Exam Time</string>
+    <string name="chooseSubject">Choose a Subject to View it’s Papers</string>
     <string name="search">Search by Course Name</string>
     <string name="fav">Favourites</string>
     <string name="allSub">All Courses</string>
     <string name="chooseYourSubject">Choose your Course.</string>
+    <string name="subjects">Subjects</string>
 
     //Exam 1
     <string name="subShort">SIN</string>
@@ -33,6 +34,8 @@
     <string name="subSlot">A1</string>
     <string name="semYear">FS2017 -18</string>
     <string name="btmMsg1">Get those marks.</string>
+
+    <string name="textpreview">Choose a Paper to Preview and Download</string>
 
     //Exam 2
     <string name="btmMsg2">Get\'em all.</string>
@@ -50,7 +53,7 @@
     <string name="message2">CHANGE PASSWORD</string>
     <string name="message3">ADD A PAPER</string>
     <string name="logout">LOGOUT</string>
-    <string name="aboutUs">UPLOAD PAPER</string>
+    <string name="aboutUs">UPLOAD A PAPER</string>
 
     //Upload
     <string name="upload">Upload</string>

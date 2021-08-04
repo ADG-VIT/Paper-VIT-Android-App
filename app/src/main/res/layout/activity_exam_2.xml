@@ -4,8 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="?attr/colorPrimary"
     tools:context=".Exam_2">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPaper"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="All Papers"
+            android:textColor="@color/buttons_blue"
+            android:textSize="18sp"
+            android:gravity="center_vertical"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -14,27 +32,28 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarPaper">
 
         <TextView
             android:id="@+id/subjectShortTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/sf_pro_display_bold"
+            android:fontFamily="@font/poppins_medium"
+            android:textStyle="bold"
             android:text="@string/subShort"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorPrimaryDark"
             android:textSize="32dp" />
 
         <TextView
             android:id="@+id/subjectNameTextView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/sf_pro_text_medium"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/poppins_regular"
             android:text="@string/subName"
-            android:textColor="@color/white"
+            android:textColor="?attr/colorPrimaryDark"
             android:textSize="13dp" />
 
         <androidx.cardview.widget.CardView
@@ -113,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/semYear"
-        android:textColor="@color/white"
+        android:textColor="?attr/colorPrimaryDark"
         android:fontFamily="@font/sf_pro_text_medium"
         android:textSize="15dp"
         android:paddingVertical="3dp"
@@ -148,29 +167,12 @@
         android:fontFamily="@font/sf_pro_text_medium"
         android:text="@string/btnText"
         android:textAllCaps="false"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/courseYearTextView" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/sf_pro_text_medium"
-        android:text="@string/btmMsg2"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/downloadPdfButton" />
 
     <ImageView
         android:id="@+id/downloadIcon"
