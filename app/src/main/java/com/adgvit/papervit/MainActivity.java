@@ -15,6 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.adgvit.papervit.RecyclerViewAdapterPackage.RecyclerAdapterExamMain;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private ImageView settings;
     private int READ_STORAGE = 100;
     private int WRITE_STORAGE = 101;
+
+    RecyclerView examsRecyclerView;
+
+    String[] examName = {"CAT1","CAT2","FAT"};
+    String[] examSubName = {"Continuous Assessment Test 1","Continuous Assessment Test 2","Final Assessment Test"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,12 +49,16 @@ public class MainActivity extends AppCompatActivity {
         //window.setStatusBarColor(colorCodeDark);
         window.setStatusBarColor(getResources().getColor(R.color.backgroundLight));
 
+        examsRecyclerView = findViewById(R.id.recyclerview_Exams);
 
-        cat1CardView = findViewById(R.id.cat1CardView);
-        cat2CardView = findViewById(R.id.cat2CardView);
-        fatCardView = findViewById(R.id.fatCardView);
+        //cat1CardView = findViewById(R.id.cat1CardView);
+        //cat2CardView = findViewById(R.id.cat2CardView);
+        //fatCardView = findViewById(R.id.fatCardView);
         settings = (ImageView) findViewById(R.id.uploadButton1);
         uploadButton = findViewById(R.id.aboutUs);
+
+        examsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        examsRecyclerView.setAdapter(new RecyclerAdapterExamMain(examName, examSubName));
 
         if ((checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))
         {
@@ -73,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            cat1CardView.setOnClickListener(new View.OnClickListener() {
+            /*cat1CardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -107,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-            });
+            });*/
         }
     }
 
@@ -140,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                cat1CardView.setOnClickListener(new View.OnClickListener() {
+                /*cat1CardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
@@ -174,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     }
-                });
+                });*/
 
             }
         }
@@ -203,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                cat1CardView.setOnClickListener(new View.OnClickListener() {
+                /*cat1CardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
@@ -237,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     }
-                });
+                });*/
             }
 
             }
