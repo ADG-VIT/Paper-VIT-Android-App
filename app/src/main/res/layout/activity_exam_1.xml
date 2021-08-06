@@ -49,81 +49,22 @@
                 android:id="@+id/subjectShortTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_medium"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/semibold"
                 android:textStyle="bold"
                 android:text="@string/subShort"
                 android:textColor="?attr/colorPrimaryDark"
                 android:textSize="32sp" />
 
             <TextView
-                android:id="@+id/subjectNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/poppins_medium"
-                android:textStyle="italic"
-                android:text="@string/subName"
-                android:textColor="?attr/colorPrimaryDark"
-                android:textSize="16sp" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/textpreview"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:textColor="?attr/colorPrimaryDark"
-                android:fontFamily="@font/poppins_extralight"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_marginLeft="20dp"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:backgroundTint="#161A2B"
-                app:cardCornerRadius="10dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/subjectCodeTextView"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sf_pro_text_medium"
-                        android:padding="10dp"
-                        android:text="@string/subCode"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/subjectNameTextView2"
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/sf_pro_text_medium"
-                        android:padding="10dp"
-                        android:text="@string/subName"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.5" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"

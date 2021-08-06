@@ -25,6 +25,13 @@
 
     <color name="svg_fill">@color/black</color>
 
+    <color name="examSubheadings">#4F556B</color>
+
+    <color name="fav_button_color">#4F556B</color>
+
+    <color name="paperColor">#232A46</color>
+
+
 
 
 

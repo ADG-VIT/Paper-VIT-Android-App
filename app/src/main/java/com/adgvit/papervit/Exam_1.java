@@ -80,19 +80,19 @@ public class    Exam_1 extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         subjectShortTextView = findViewById(R.id.subjectShortTextView);
-        subjectNameTextView = findViewById(R.id.subjectNameTextView);
-        subjectNameTextView2 = findViewById(R.id.subjectNameTextView2);
-        subjectCodeTextView = findViewById(R.id.subjectCodeTextView);
+        //subjectNameTextView = findViewById(R.id.subjectNameTextView);
+        //subjectNameTextView2 = findViewById(R.id.subjectNameTextView2);
+        //subjectCodeTextView = findViewById(R.id.subjectCodeTextView);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         RecyclerViewAdapter2.showShimmer = true;
 
-        subjectCodeTextView.setText(subjectCode);
+        //subjectCodeTextView.setText(subjectCode);
         subjectShortTextView.setText(subjectShort);
-        subjectNameTextView.setText(subjectName);
-        subjectNameTextView2.setText(subjectName);
+        //subjectNameTextView.setText(subjectName);
+        //subjectNameTextView2.setText(subjectName);
 
 
         paperIdArrayList = new ArrayList<>();

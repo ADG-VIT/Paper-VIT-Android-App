@@ -8,5 +8,5 @@
       android:strokeLineJoin="round"
       android:strokeWidth="2"
       android:fillColor="#00000000"
-      android:strokeColor="#4F556B"/>
+      android:strokeColor="@color/fav_button_color"/>
 </vector>

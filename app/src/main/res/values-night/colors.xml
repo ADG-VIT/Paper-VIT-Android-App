@@ -16,14 +16,22 @@
     <color name="backgroundLight">#0C0C0C</color>
     <color name="course_bg">#121212</color>
     <color name="buttons_blue">#5F2EEA</color>
-    <color name="course_code_background">#E4DAFF</color>
+    <color name="course_code_background">#B194FF</color>
     <color name="download_button">#410FCE</color>
 
     <color name="textColorLight">@color/white</color>
 
-    <color name="settingSubHeadingColor">#7A797C</color>
+    <color name="settingSubHeadingColor">#858487</color>
 
     <color name="svg_fill">@color/white</color>
+
+    <color name="examSubheadings">#C9C9CD</color>
+
+    <color name="fav_button_color">#C9C9CD</color>
+
+    <color name="paperColor">#C9C9CD</color>
+
+
 
 
 
