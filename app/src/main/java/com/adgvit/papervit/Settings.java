@@ -12,12 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import static java.lang.String.format;
 
 public class Settings extends AppCompatActivity {
     private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms;
     private String appurl = "https://play.google.com/store/apps/details?id=com.adgvit.papervit";
+
+    ImageView backImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +31,13 @@ public class Settings extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(getResources().getColor(R.color.backgroundLight));
 
-        Toolbar toolbar = findViewById(R.id.toolbarSetting);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        backImageView = findViewById(R.id.backImageView);
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         aboutUs = findViewById(R.id.aboutUsSettings);
         feedback = findViewById(R.id.feedbackSettings);

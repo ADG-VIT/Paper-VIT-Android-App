@@ -87,9 +87,9 @@ public class Exam_2 extends AppCompatActivity {
         fileUrl = intent.getStringExtra("fileUrl");
         //Log.i("fileUrl",fileUrl);
         subShort = findViewById(R.id.subjectShortTextView2);
-        subName = findViewById(R.id.subjectNameTextView3);
-        subName2 = findViewById(R.id.subjectNameTextView4);
-        subCode = findViewById(R.id.subjectCodeTextView2);
+        //subName = findViewById(R.id.subjectNameTextView3);
+        //subName2 = findViewById(R.id.subjectNameTextView4);
+        //subCode = findViewById(R.id.subjectCodeTextView2);
         subYear = findViewById(R.id.courseYearTextView);
         subSlot = findViewById(R.id.courseSlotTextView);
         downloadPdf = findViewById(R.id.downloadPdfButton);
@@ -97,11 +97,11 @@ public class Exam_2 extends AppCompatActivity {
         downloadIcon = findViewById(R.id.downloadIcon);
 
         subShort.setText(subjectShort);
-        subName.setText(subjectName);
-        subName2.setText(subjectName);
-        subCode.setText(subjectCode);
+        //subName.setText(subjectName);
+        //subName2.setText(subjectName);
+        //subCode.setText(subjectCode);
         subYear.setText(subjectYear);
-        subSlot.setText(subjectSlot);
+        subSlot.setText("Slot: " + subjectSlot);
 
         //filename = subjectCode + "_" + subjectYear + "_" + subjectSlot + "_" + Exam.examType + ".pdf";
 

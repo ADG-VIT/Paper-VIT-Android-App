@@ -19,6 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/subjectShortTextView2"
             android:text="All Papers"
             android:textColor="@color/buttons_blue"
             android:textSize="18sp"
@@ -35,74 +36,25 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbarPaper">
 
         <TextView
-            android:id="@+id/subjectShortTextView2"
+            android:id="@+id/courseYearTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/poppins_medium"
-            android:textStyle="bold"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/semibold"
             android:text="@string/subShort"
             android:textColor="?attr/colorPrimaryDark"
-            android:textSize="32dp" />
+            android:textSize="32sp" />
 
         <TextView
-            android:id="@+id/subjectNameTextView3"
+            android:id="@+id/courseSlotTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/poppins_regular"
+            android:layout_marginLeft="24dp"
+            android:fontFamily="@font/poppins_medium"
             android:text="@string/subName"
             android:textColor="?attr/colorPrimaryDark"
             android:textSize="13dp" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:backgroundTint="#161A2B"
-            app:cardCornerRadius="10dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/subjectCodeTextView2"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sf_pro_text_medium"
-                    android:padding="10dp"
-                    android:text="@string/subCode"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/subjectNameTextView4"
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sf_pro_text_medium"
-                    android:padding="10dp"
-                    android:text="@string/subName"
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>
@@ -110,7 +62,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="450dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginTop="20dp"
@@ -127,58 +79,29 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/courseYearTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/semYear"
-        android:textColor="?attr/colorPrimaryDark"
-        android:fontFamily="@font/sf_pro_text_medium"
-        android:textSize="15dp"
-        android:paddingVertical="3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"/>
-
-    <TextView
-        android:id="@+id/courseSlotTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="3dp"
-        android:background="@drawable/course_slot_shape"
-        android:fontFamily="@font/sf_pro_text_medium"
-        android:text="@string/subSlot"
-        android:textColor="#000000"
-        android:textSize="13dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView" />
 
     <Button
         android:id="@+id/downloadPdfButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="30dp"
         android:background="@drawable/course_slot_shape"
         android:fontFamily="@font/sf_pro_text_medium"
         android:text="@string/btnText"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseYearTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <ImageView
         android:id="@+id/downloadIcon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"

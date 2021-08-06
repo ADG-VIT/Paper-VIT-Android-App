@@ -45,11 +45,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_medium"
-                android:textStyle="bold"
+                android:fontFamily="@font/semibold"
                 android:text="Subjects"
                 android:textColor="?attr/colorPrimaryDark"
                 android:textSize="32dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +57,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/chooseSubject"
                 android:textColor="?attr/colorPrimaryDark"
                 android:textSize="15sp"
@@ -107,10 +107,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/sf_pro_text_medium"
+                android:fontFamily="@font/semibold"
                 android:text="@string/fav"
-                android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12dp"
+                android:textColor="@color/examSubheadings"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout2"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -129,10 +129,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/sf_pro_text_medium"
+                android:fontFamily="@font/semibold"
                 android:text="@string/allSub"
-                android:textColor="?attr/colorPrimaryDark"
-                android:textSize="12dp"
+                android:textColor="@color/examSubheadings"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout2"
                 app:layout_constraintTop_toBottomOf="@+id/favRecyclerView" />
 
