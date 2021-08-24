@@ -64,6 +64,11 @@
     <string name="cancel">CANCEL</string>
     <string name="preview">PREVIEW</string>
 
+    //Upload_paper_1
+    <string name="upload_pdf">Upload your scanned paper as a PDF</string>
+    <string name="quality">Make sure your Scanned Papers are of the \nHighest Quality</string>
+    <string name="select"><u>Select a file to Upload</u></string>
+
     //About Us
     <string name="team">Team</string>
     <string name="ishaan">ISHAAN OHRI</string>
@@ -86,4 +91,5 @@
     <string name="textRefer">With PaperVIT by your side, ab <b>back</b> nhi lagegi!!
 Discover frequently asked questions, question paper pattern and model questions through old question papers available on PaperVIT.
         Jab <b>6 hazar</b> ki ho baat, to yeh bhi try karlo yaar.</string>
+
 </resources>
