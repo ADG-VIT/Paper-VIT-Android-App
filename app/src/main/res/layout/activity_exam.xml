@@ -91,7 +91,7 @@
                     android:id="@+id/searchEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="?attr/colorPrimary"
+                    android:background="@color/searchEditText"
                     android:fontFamily="@font/sf_pro_text_regular"
                     android:hint="@string/search"
                     android:inputType="textCapWords"

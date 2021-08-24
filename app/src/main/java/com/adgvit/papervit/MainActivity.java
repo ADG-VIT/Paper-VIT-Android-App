@@ -2,12 +2,14 @@ package com.adgvit.papervit;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -22,7 +24,8 @@ import com.adgvit.papervit.RecyclerViewAdapterPackage.RecyclerAdapterExamMain;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CardView cat1CardView, cat2CardView, fatCardView, uploadButton;
+    private CardView cat1CardView, cat2CardView, fatCardView;
+    Button uploadButton;
     private ImageView settings;
     private int READ_STORAGE = 100;
     private int WRITE_STORAGE = 101;
@@ -279,5 +282,30 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("AppTheme",MODE_PRIVATE);
+
+        if(sharedPreferences != null)
+        {
+            if(sharedPreferences.getString("CurrentTheme","").equals("Def"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            }
+            else if(sharedPreferences.getString("CurrentTheme","").equals("Light"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            else if(sharedPreferences.getString("CurrentTheme","").equals("Dark"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
+
+    }
+
 }
 

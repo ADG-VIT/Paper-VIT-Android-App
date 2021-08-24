@@ -33,50 +33,49 @@
                 android:layout_height="match_parent"
                 android:background="@color/course_bg"
                 android:paddingHorizontal="20dp"
-                android:paddingVertical="15dp">
+                android:paddingVertical="10dp">
 
                 <LinearLayout
                     android:id="@+id/linearLayout3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="35dp"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/checkImage"
-                    app:layout_constraintStart_toStartOf="parent">
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/subjectShortTextView"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/shimmer_background_subject"
-                        android:fontFamily="@font/poppins_medium"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/semibold"
                         android:textColor="?attr/colorPrimaryDark"
-                        android:textSize="16dp" />
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/subjectNameTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="0dp"
                         android:background="@drawable/shimmer_background_subject"
-                        android:fontFamily="@font/sf_pro_text_medium"
+                        android:fontFamily="@font/poppins_regular"
                         android:textColor="?attr/colorPrimaryDark"
-                        android:textSize="14dp" />
+                        android:textSize="10dp" />
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/subjectCodeTextView"
-                    android:layout_width="60dp"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:padding="3dp"
                     android:background="@drawable/shimmer_background_subject"
                     android:backgroundTint="@color/course_code_background"
-                    android:fontFamily="@font/sf_pro_text_medium"
-                    android:padding="5dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textSize="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"

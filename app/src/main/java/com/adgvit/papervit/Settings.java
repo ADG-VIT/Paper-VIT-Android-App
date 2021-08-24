@@ -2,10 +2,12 @@ package com.adgvit.papervit;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,7 +19,7 @@ import android.widget.ImageView;
 import static java.lang.String.format;
 
 public class Settings extends AppCompatActivity {
-    private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms;
+    private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms, settings;
     private String appurl = "https://play.google.com/store/apps/details?id=com.adgvit.papervit";
 
     ImageView backImageView;
@@ -25,6 +27,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_settings);
 
         Window window = getWindow();
@@ -39,6 +42,7 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+        settings = findViewById(R.id.appearanceSettings);
         aboutUs = findViewById(R.id.aboutUsSettings);
         feedback = findViewById(R.id.feedbackSettings);
         refer = findViewById(R.id.referSettings);
@@ -48,6 +52,13 @@ public class Settings extends AppCompatActivity {
         instagram = findViewById(R.id.instagramSettings);
         rate = findViewById(R.id.rateSettings);
         //terms = findViewById(R.id.termsSettings);
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),AppearenceSettings.class));
+            }
+        });
 
         aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,6 +148,30 @@ public class Settings extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("AppTheme",MODE_PRIVATE);
+
+        if(sharedPreferences != null)
+        {
+            if(sharedPreferences.getString("CurrentTheme","").equals("Def"))
+            {
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            }
+            else if(sharedPreferences.getString("CurrentTheme","").equals("Light"))
+            {
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            else if(sharedPreferences.getString("CurrentTheme","").equals("Dark"))
+            {
+                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
+
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == android.R.id.home)
         {
@@ -144,5 +179,4 @@ public class Settings extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

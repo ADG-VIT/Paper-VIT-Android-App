@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
@@ -12,10 +13,25 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
         setContentView(R.layout.activity_splash_screen);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("AppTheme",MODE_PRIVATE);
+
+        if(sharedPreferences != null)
+        {
+            if(sharedPreferences.getString("CurrentTheme","").equals("Def"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            }
+            else if(sharedPreferences.getString("CurrentTheme","").equals("Light"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            else if(sharedPreferences.getString("CurrentTheme","").equals("Dark"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
 
         new CountDownTimer(2000,1000)
         {
