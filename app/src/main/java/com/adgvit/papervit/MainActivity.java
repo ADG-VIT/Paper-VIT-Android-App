@@ -22,6 +22,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.adgvit.papervit.RecyclerViewAdapterPackage.RecyclerAdapterExamMain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     private CardView cat1CardView, cat2CardView, fatCardView;
@@ -32,8 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView examsRecyclerView;
 
-    String[] examName = {"CAT1","CAT2","FAT"};
-    String[] examSubName = {"Continuous Assessment Test 1","Continuous Assessment Test 2","Final Assessment Test"};
+    private static Retrofit.Builder builder = new Retrofit.Builder()
+            .baseUrl("https://adg-papervit.herokuapp.com/")
+            .addConverterFactory(GsonConverterFactory.create());
+
+    private static Retrofit retrofit = builder.build();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,8 +73,28 @@ public class MainActivity extends AppCompatActivity {
         settings = (ImageView) findViewById(R.id.uploadButton1);
         uploadButton = findViewById(R.id.aboutUs);
 
-        examsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        examsRecyclerView.setAdapter(new RecyclerAdapterExamMain(examName, examSubName));
+        API api = retrofit.create(API.class);
+        Call<HomeData> call = api.getHome();
+        call.enqueue(new Callback<HomeData>() {
+            @Override
+            public void onResponse(Call<HomeData> call, Response<HomeData> response) {
+                HomeData data = response.body();
+                List<HomeObject> list = new ArrayList<>();
+                list = data.getData().getExamTypes();
+                examsRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                examsRecyclerView.setAdapter(new RecyclerAdapterExamMain(MainActivity.this, list));
+
+            }
+
+            @Override
+            public void onFailure(Call<HomeData> call, Throwable t) {
+
+            }
+        });
+
+
+
+
 
         if ((checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))
         {
@@ -281,30 +314,6 @@ public class MainActivity extends AppCompatActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        SharedPreferences sharedPreferences = getSharedPreferences("AppTheme",MODE_PRIVATE);
-
-        if(sharedPreferences != null)
-        {
-            if(sharedPreferences.getString("CurrentTheme","").equals("Def"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-            }
-            else if(sharedPreferences.getString("CurrentTheme","").equals("Light"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-            else if(sharedPreferences.getString("CurrentTheme","").equals("Dark"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
-        }
-
     }
 
 }

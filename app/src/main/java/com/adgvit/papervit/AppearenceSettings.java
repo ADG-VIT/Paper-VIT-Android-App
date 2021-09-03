@@ -90,9 +90,9 @@ public class AppearenceSettings extends AppCompatActivity {
                 deafult.setChecked(true);
                 dark.setChecked(false);
 
-                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
 
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                //getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
 
                 //startActivity(new Intent(getApplicationContext(),AppearenceSettings.class));
 
@@ -109,9 +109,9 @@ public class AppearenceSettings extends AppCompatActivity {
                 deafult.setChecked(false);
                 dark.setChecked(false);
 
-                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                //getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
                 //startActivity(new Intent(getApplicationContext(),AppearenceSettings.class));
 
@@ -128,9 +128,9 @@ public class AppearenceSettings extends AppCompatActivity {
                 deafult.setChecked(false);
                 dark.setChecked(true);
 
-                //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                //getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
                 //startActivity(new Intent(getApplicationContext(),AppearenceSettings.class));
 

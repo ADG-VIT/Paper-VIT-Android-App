@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/backgroundLight">
+    android:backgroundTint="?attr/backgroundColor">
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
@@ -31,7 +31,7 @@
                 android:id="@+id/item"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/course_bg"
+                android:background="?attr/colorAccent"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp">
 
@@ -74,7 +74,7 @@
                     android:layout_marginTop="5dp"
                     android:padding="3dp"
                     android:background="@drawable/shimmer_background_subject"
-                    android:backgroundTint="@color/course_code_background"
+                    android:backgroundTint="?attr/colorButtonNormal"
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textSize="10dp"

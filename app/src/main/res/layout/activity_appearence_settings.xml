@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
+    android:background="?attr/backgroundColor"
     tools:context=".AppearenceSettings">
 
     <ImageView
@@ -77,7 +77,7 @@
             android:id="@+id/deafultButton"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            app:buttonTint="@color/svg_fill"
+            app:buttonTint="?attr/badgeTextColor"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView6" />
@@ -127,7 +127,7 @@
             android:id="@+id/lightButton"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            app:buttonTint="@color/svg_fill"
+            app:buttonTint="?attr/badgeTextColor"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView6" />
@@ -176,7 +176,7 @@
             android:id="@+id/darkButton"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            app:buttonTint="@color/svg_fill"
+            app:buttonTint="?attr/badgeTextColor"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView6" />

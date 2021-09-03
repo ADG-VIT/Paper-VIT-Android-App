@@ -110,27 +110,6 @@ public class Exam extends AppCompatActivity {
 
         context = Exam.this;
 
-        try {
-            String action = getIntent().getAction();
-
-            if(action.equals(cat2_action))
-            {
-                examType = cat2;
-            }
-            else if(action.equals(fat_action))
-            {
-                examType = fat;
-            }
-            else
-            {
-                examType = cat1;
-            }
-        }
-        catch (Exception e)
-        {
-
-        }
-
         RecyclerViewAdapter.showShimmer = true;
 
         database = new Database(this);
@@ -154,18 +133,9 @@ public class Exam extends AppCompatActivity {
 
 //        Toast.makeText(context, examType, Toast.LENGTH_SHORT).show();
 
-        if (examType.equals(cat2)) {
+        String id = getIntent().getStringExtra("type");
 
-            call = api.getSubCat2();
-        }
-        else if (examType.equals(fat)) {
-
-            call = api.getSubFat();
-        }
-        else
-        {
-            call = api.getSubCat1();
-        }
+        call = api.getSub(id);
 
         call.enqueue(new Callback<root>() {
             @Override

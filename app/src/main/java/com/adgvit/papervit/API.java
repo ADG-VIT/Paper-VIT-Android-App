@@ -1,5 +1,7 @@
 package com.adgvit.papervit;
 
+import java.util.stream.Stream;
+
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -12,14 +14,11 @@ import retrofit2.http.Path;
 
 public interface API {
 
-    @GET("/api/v1/subjects/0")
-    Call<root> getSubCat1();
+    @GET("/api/v1/examTypes/")
+    Call<HomeData> getHome();
 
-    @GET("/api/v1/subjects/1")
-    Call<root> getSubCat2();
-
-    @GET("/api/v1/subjects/2")
-    Call<root> getSubFat();
+    @GET("/api/v1/subjects/{type}")
+    Call<root> getSub(@Path("type") String type);
 
     @GET("/api/v1/papers/{id}")
     Call<root1> getPaperCat1(@Path("id") String _id);

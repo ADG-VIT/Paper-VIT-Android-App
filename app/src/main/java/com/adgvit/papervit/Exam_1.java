@@ -104,8 +104,6 @@ public class    Exam_1 extends AppCompatActivity {
 
         API api = retrofit.create(API.class);
 
-
-
         if (Exam.examType.equals(cat2)) {
 
             call = api.getPaperCat2(subjectId);

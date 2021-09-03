@@ -147,29 +147,6 @@ public class Settings extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        SharedPreferences sharedPreferences = getSharedPreferences("AppTheme",MODE_PRIVATE);
-
-        if(sharedPreferences != null)
-        {
-            if(sharedPreferences.getString("CurrentTheme","").equals("Def"))
-            {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-            }
-            else if(sharedPreferences.getString("CurrentTheme","").equals("Light"))
-            {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-            else if(sharedPreferences.getString("CurrentTheme","").equals("Dark"))
-            {
-                getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
-        }
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

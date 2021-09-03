@@ -1,0 +1,38 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/backgroundLight</item>
+        <item name="colorPrimaryDark">@color/textColorLight</item>
+        <item name="colorAccent">@color/course_bg</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="buttonTint">@color/buttons_blue</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <!-- Customize your theme here. -->
+
+
+        <item name="backgroundColor">@color/backgroundLight</item>
+        <item name="textAppearanceHeadline1">@color/examSubheadings</item>
+        <item name="textAppearanceCaption">@color/textColorLight</item>
+        <item name="searchViewStyle">@color/searchEditText</item>
+        <item name="colorButtonNormal">@color/course_code_background</item>
+
+        <item name="customColorValue">@color/fav_button_color</item>
+        <item name="badgeTextColor">@color/svg_fill</item>
+
+    </style>
+
+    <style name="ButtonTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+    </style>
+    
+
+
+    
+    
+    
+</resources>

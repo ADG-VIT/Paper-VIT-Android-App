@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Settings"
-    android:background="?attr/colorPrimary">
+    android:background="?attr/backgroundColor">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/semibold"
                 android:text="General"
-                android:textColor="@color/settingSubHeadingColor"
+                android:textColor="?attr/textAppearanceHeadline1"
                 android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/settingsHead2" />
@@ -150,7 +150,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/semibold"
                 android:text="Stay in Touch"
-                android:textColor="@color/settingSubHeadingColor"
+                android:textColor="?attr/textAppearanceHeadline1"
                 android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/feedbackSettings" />
@@ -447,7 +447,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/semibold"
                 android:text="Others"
-                android:textColor="@color/settingSubHeadingColor"
+                android:textColor="?attr/textAppearanceHeadline1"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/twitterSettings" />

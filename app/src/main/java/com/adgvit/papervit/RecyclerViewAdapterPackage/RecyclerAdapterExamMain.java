@@ -14,19 +14,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.adgvit.papervit.Exam;
+import com.adgvit.papervit.HomeObject;
 import com.adgvit.papervit.MainActivity;
 import com.adgvit.papervit.R;
 
+import java.util.List;
+
 public class RecyclerAdapterExamMain extends RecyclerView.Adapter<RecyclerAdapterExamMain.ExamViewHolder> {
 
-    private String[] examName;
-    private String[] examSubName;
-
     Context context;
+    List<HomeObject> list;
 
-    public RecyclerAdapterExamMain(String[] examName, String[] examSubName) {
-        this.examName = examName;
-        this.examSubName = examSubName;
+    public RecyclerAdapterExamMain(Context context, List<HomeObject> list) {
+        this.context = context;
+        this.list = list;
     }
 
     @NonNull
@@ -40,17 +41,16 @@ public class RecyclerAdapterExamMain extends RecyclerView.Adapter<RecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapterExamMain.ExamViewHolder holder, int position) {
 
-        String name = examName[position];
-        String subName = examSubName[position];
 
-        holder.examNameTV.setText(name);
-        holder.examSubNameTV.setText(subName);
+
+        holder.examNameTV.setText(list.get(position).getExamType());
+        //holder.examSubNameTV.setText(subName);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Exam.examType = "CAT 1";                                    //For CAT1, NOW testing
+            public void onClick(View v) {                                //For CAT1, NOW testing
                 Intent intent = new Intent(context,Exam.class);
+                intent.putExtra("type", String.valueOf(list.get(position).get_id()));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
@@ -71,7 +71,7 @@ public class RecyclerAdapterExamMain extends RecyclerView.Adapter<RecyclerAdapte
 
     @Override
     public int getItemCount() {
-        return examName.length;
+        return list.size();
     }
 
     public class ExamViewHolder extends RecyclerView.ViewHolder{
