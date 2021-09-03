@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#232A45</color>
+    <color name="colorAccent">#232A45</color>
+    <color name="disableColor">#2D2F36</color>
+    <color name="searchIcon">#DBDBDB</color>
+    <color name="cardColor">#161A2B</color>
+    <color name="edit">#DB8000</color>
+    <color name="grey">#dddddd</color>
+
+
+    <color name="backgroundLight">#F7F7FC</color>
+    <color name="backgroundDark">#0C0C0C</color>
+
+    <color name="course_bg">#FFFFFF</color>
+    <color name="course_bgDark">#121212</color>
+
+    <color name="buttons_blue">#5F2EEA</color>
+    <color name="buttons_blueDark">#5F2EEA</color>
+
+    <color name="course_code_background">#E4DAFF</color>
+    <color name="course_code_backgroundDark">#B194FF</color>
+
+    <color name="download_button">#410FCE</color>
+    <color name="download_buttonDark">#410FCE</color>
+
+    <color name="textColorLight">@color/black</color>
+    <color name="textColorLightDark">@color/white</color>
+
+    <color name="settingSubHeadingColor">#7A797C</color>
+    <color name="settingSubHeadingColorDark">#858487</color>
+
+    <color name="svg_fill">@color/black</color>
+    <color name="svg_fillDark">@color/white</color>
+
+    <color name="examSubheadings">#4F556B</color>
+    <color name="examSubheadingsDark">#C9C9CD</color>
+
+    <color name="fav_button_color">#4F556B</color>
+    <color name="fav_button_colorDark">#C9C9CD</color>
+
+    <color name="paperColor">#232A46</color>
+    <color name="paperColorDark">#C9C9CD</color>
+
+    <color name="light_dark_text">#5F2EEA</color>
+    <color name="light_dark_textDark">#9671FF</color>
+
+    <color name="searchEditText">#F7F7FC</color>
+    <color name="searchEditTextDark">#121212</color>
+
+    <color name="purpledifference">#410FCE</color>
+    <color name="purpledifferenceDark">#7F52FF</color>
+
+</resources>

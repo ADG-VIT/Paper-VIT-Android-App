@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PaperVIT" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/backgroundDark</item>
+        <item name="colorPrimaryDark">@color/textColorLightDark</item>
+        <item name="colorAccent">@color/course_bgDark</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="buttonTint">@color/buttons_blueDark</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <!-- Customize your theme here. -->
+
+        <item name="backgroundColor">@color/backgroundDark</item>
+        <item name="textAppearanceHeadline1">@color/examSubheadingsDark</item>
+        <item name="textAppearanceCaption">@color/textColorLightDark</item>
+        <item name="searchViewStyle">@color/searchEditTextDark</item>
+        <item name="colorButtonNormal">@color/course_code_backgroundDark</item>
+
+        <item name="customColorValue">@color/fav_button_colorDark</item>
+        <item name="badgeTextColor">@color/svg_fillDark</item>
+    </style>
+</resources>
