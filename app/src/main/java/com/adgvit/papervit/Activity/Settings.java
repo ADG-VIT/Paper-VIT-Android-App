@@ -29,12 +29,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_settings);
-
-//        Window window = getWindow();
-//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//        window.setStatusBarColor(getResources().getColor(R.color.backgroundLight));
 
         backImageView = findViewById(R.id.backImageView);
         backImageView.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +89,7 @@ public class Settings extends AppCompatActivity {
                 v.getContext().startActivity(Intent.createChooser(shareIntent,"Share via"));
             }
         });
+
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

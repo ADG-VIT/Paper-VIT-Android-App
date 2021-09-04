@@ -9,6 +9,7 @@
         <item name="buttonTint">@color/buttons_blue</item>
         <item name="android:navigationBarColor">@color/black</item>
         <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/backgroundLight</item>
         <!-- Customize your theme here. -->
 
 
@@ -18,8 +19,20 @@
         <item name="searchViewStyle">@color/searchEditText</item>
         <item name="colorButtonNormal">@color/course_code_background</item>
 
+        <item name="textFillColor">@color/black</item>
+        <item name="textBackground">@color/white</item>
+
         <item name="customColorValue">@color/fav_button_color</item>
         <item name="badgeTextColor">@color/svg_fill</item>
+
+        <item name="textAppearanceButton">@color/light_dark_text</item>
+
+        <item name="imageButtonStyle">@color/paperColor</item>
+
+        <item name="buttonBarStyle">@color/download_button</item>
+
+        <item name="shimmer_base_color">@color/shimmer_bg</item>
+
 
     </style>
 </resources>

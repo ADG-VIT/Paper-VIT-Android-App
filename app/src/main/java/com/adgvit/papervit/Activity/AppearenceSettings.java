@@ -27,27 +27,22 @@ public class AppearenceSettings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appearence_settings);
 
-        SharedPreferences sharedPreferences1 = getSharedPreferences("com.adgvit.papervit.theme",MODE_PRIVATE);
-        if(sharedPreferences1 != null)
-        {
-            if(sharedPreferences1.getString("CurrentTheme","").equals("Def"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-            }
-            else if(sharedPreferences1.getString("CurrentTheme","").equals("Light"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-            else if(sharedPreferences1.getString("CurrentTheme","").equals("Dark"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
-        }
-
-
-//        Window window = getWindow();
-//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//        window.setStatusBarColor(getResources().getColor(R.color.backgroundLight));
+//        SharedPreferences sharedPreferences1 = getSharedPreferences("com.adgvit.papervit.theme",MODE_PRIVATE);
+//        if(sharedPreferences1 != null)
+//        {
+//            if(sharedPreferences1.getString("CurrentTheme","").equals("Def"))
+//            {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+//            }
+//            else if(sharedPreferences1.getString("CurrentTheme","").equals("Light"))
+//            {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//            }
+//            else if(sharedPreferences1.getString("CurrentTheme","").equals("Dark"))
+//            {
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//            }
+//        }
 
         backImageView = findViewById(R.id.backImageView);
         backImageView.setOnClickListener(new View.OnClickListener() {
@@ -61,26 +56,26 @@ public class AppearenceSettings extends AppCompatActivity {
         light = findViewById(R.id.lightButton);
         dark = findViewById(R.id.darkButton);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("AppTheme",MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("com.adgvit.papervit.theme",MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
         if(sharedPreferences != null)
         {
-            if(sharedPreferences.getString("CurrentTheme","").equals("Def"))
+            if(sharedPreferences.getString("theme","").equals("sys_def"))
             {
                 deafult.setChecked(true);
             }
-            else if(sharedPreferences.getString("CurrentTheme","").equals("Light"))
+            else if(sharedPreferences.getString("theme","").equals("light"))
             {
                 light.setChecked(true);
             }
-            else if(sharedPreferences.getString("CurrentTheme","").equals("Dark"))
+            else if(sharedPreferences.getString("theme","").equals("dark"))
             {
                 dark.setChecked(true);
             }
         }
 
-        if (sharedPreferences.getString("CurrentTheme","").equals(""))
+        if (sharedPreferences.getString("theme","").equals(""))
         {
             deafult.setChecked(true);
         }

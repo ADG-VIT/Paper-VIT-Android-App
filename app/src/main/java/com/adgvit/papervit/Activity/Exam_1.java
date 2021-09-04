@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.adgvit.papervit.Adapter.RecyclerViewAdapter;
@@ -61,6 +62,7 @@ public class    Exam_1 extends AppCompatActivity {
             .addConverterFactory(GsonConverterFactory.create());
 
     private static Retrofit retrofit = builder.build();
+    ImageView backImageView;
 
 
     @Override
@@ -76,6 +78,14 @@ public class    Exam_1 extends AppCompatActivity {
 //        Toolbar toolbar = findViewById(R.id.toolbarSubjects);
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        backImageView = findViewById(R.id.backImageView);
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
         Intent intent = getIntent();

@@ -4,6 +4,6 @@
 
     <corners android:radius="5dp"/>
 
-    <solid android:color="?attr/buttonTint"/>
+    <solid android:color="?attr/buttonBarStyle"/>
 
 </shape>

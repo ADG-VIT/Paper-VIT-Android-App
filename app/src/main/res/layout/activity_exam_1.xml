@@ -4,36 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
-    tools:context=".Exam_1">
+    android:background="?attr/backgroundColor"
+    tools:context="Activity.Exam_1">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarSubjects"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Subjects"
-            android:textColor="@color/buttons_blue"
-            android:textSize="18sp"
-            android:gravity="center_vertical"/>
-    </androidx.appcompat.widget.Toolbar>
+        <ImageView
+            android:id="@+id/backImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:text="Subjects"
+            android:textColor="?attr/buttonTint"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/backImageView"
+            app:layout_constraintStart_toEndOf="@+id/backImageView"
+            app:layout_constraintTop_toTopOf="@+id/backImageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarSubjects">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -52,19 +70,19 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="2dp"
                 android:fontFamily="@font/semibold"
-                android:textStyle="bold"
                 android:text="@string/subShort"
                 android:textColor="?attr/colorPrimaryDark"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/textpreview"
-                android:textSize="16sp"
-                android:textColor="?attr/colorPrimaryDark"
+                android:layout_marginLeft="20dp"
                 android:fontFamily="@font/poppins_medium"
-                android:layout_marginLeft="20dp"/>
+                android:text="@string/textpreview"
+                android:textColor="?attr/colorPrimaryDark"
+                android:textSize="16sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"

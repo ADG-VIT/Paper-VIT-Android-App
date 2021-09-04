@@ -61,6 +61,8 @@ public class Exam_2 extends AppCompatActivity {
             .setLenient()
             .create();
 
+    ImageView backImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,14 @@ public class Exam_2 extends AppCompatActivity {
 //        Toolbar toolbar = findViewById(R.id.toolbarPaper);
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        backImageView = findViewById(R.id.backImageView);
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         TextView subShort, subName, subName2, subCode, subYear, subSlot;
 

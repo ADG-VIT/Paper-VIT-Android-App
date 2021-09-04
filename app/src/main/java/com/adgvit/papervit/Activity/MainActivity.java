@@ -56,25 +56,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
-
-        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         setContentView(R.layout.activity_main);
 
+        // To be put in the Splash Screen
 
-        Window window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        //int colorCodeDark = Color.parseColor("#F7F7FC");
-        //int colorCodeDark = Color.parseColor(getResources().getColor(R.color.colorPrimaryTheme));
-        //window.setStatusBarColor(colorCodeDark);
-        window.setStatusBarColor(getResources().getColor(R.color.backgroundLight));
+        SharedPreferences sharedPreferences = getSharedPreferences("com.adgvit.papervit.theme",MODE_PRIVATE);
+
+        if(sharedPreferences != null)
+        {
+            if(sharedPreferences.getString("theme","").equals("sys_def"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+            }
+            else if(sharedPreferences.getString("theme","").equals("light"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            else if(sharedPreferences.getString("theme","").equals("dark"))
+            {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
 
         examsRecyclerView = findViewById(R.id.recyclerview_Exams);
 
-        //cat1CardView = findViewById(R.id.cat1CardView);
-        //cat2CardView = findViewById(R.id.cat2CardView);
-        //fatCardView = findViewById(R.id.fatCardView);
         settings = (ImageView) findViewById(R.id.uploadButton1);
         uploadButton = findViewById(R.id.aboutUs);
 
@@ -97,10 +103,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         if ((checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))
         {
             requestPermissions(new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},READ_STORAGE);
@@ -121,9 +123,9 @@ public class MainActivity extends AppCompatActivity {
             uploadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(MainActivity.this,Upload.class);
-//                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this,UploadPaper.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
             });
 

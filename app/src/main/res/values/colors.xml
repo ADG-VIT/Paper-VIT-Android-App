@@ -61,4 +61,7 @@
     <color name="purpledifference">#410FCE</color>
     <color name="purpledifferenceDark">#7F52FF</color>
 
+    <color name="shimmer_bg">#FFFFFF</color>
+    <color name="shimmer_bgDark">#474646</color>
+
 </resources>

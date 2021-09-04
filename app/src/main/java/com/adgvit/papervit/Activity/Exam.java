@@ -15,6 +15,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -82,7 +83,7 @@ public class Exam extends AppCompatActivity {
 
     public static int filterOption = 0;
 
-    public static String examType = "CAT 1";
+    public static String examType;
     private Database database;
 
     private static Retrofit.Builder builder = new Retrofit.Builder()
@@ -90,6 +91,8 @@ public class Exam extends AppCompatActivity {
             .addConverterFactory(GsonConverterFactory.create());
 
     private static Retrofit retrofit = builder.build();
+
+    ImageView backImageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +110,16 @@ public class Exam extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        backImageView = findViewById(R.id.backImageView);
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        Intent intent = getIntent();
+        examType = intent.getStringExtra("type");
 
         favRecyclerView = findViewById(R.id.favRecyclerView);
         allSubjectRecyclerView = findViewById(R.id.allSubjectRecyclerView);
@@ -123,9 +136,23 @@ public class Exam extends AppCompatActivity {
 
         API api = retrofit.create(API.class);
 
-        examTypeEditText.setText(examType);
-
-
+        switch(examType)
+        {
+            case "0":
+                examTypeEditText.setText("CAT 1");
+                break;
+            case "1":
+                examTypeEditText.setText("CAT 2");
+                break;
+            case "2":
+                examTypeEditText.setText("FAT");
+                break;
+            case "3":
+                examTypeEditText.setText("DA");
+                break;
+            default: examTypeEditText.setText("Subjects");
+                break;
+        }
 
         subjectNameArrayList = new ArrayList<>();
         subjectCodeArrayList = new ArrayList<>();

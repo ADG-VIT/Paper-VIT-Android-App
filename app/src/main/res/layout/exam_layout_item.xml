@@ -10,6 +10,7 @@
         android:id="@+id/fatCardView"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:backgroundTint="?attr/colorAccent"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
@@ -23,7 +24,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/course_bg"
+            android:background="?attr/colorAccent"
             android:padding="10dp">
 
             <ImageView

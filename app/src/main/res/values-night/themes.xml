@@ -5,10 +5,11 @@
         <item name="colorPrimary">@color/backgroundDark</item>
         <item name="colorPrimaryDark">@color/textColorLightDark</item>
         <item name="colorAccent">@color/course_bgDark</item>
-        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/black</item>
         <item name="buttonTint">@color/buttons_blueDark</item>
-        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/black</item>
         <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/backgroundDark</item>
         <!-- Customize your theme here. -->
 
         <item name="backgroundColor">@color/backgroundDark</item>
@@ -17,7 +18,19 @@
         <item name="searchViewStyle">@color/searchEditTextDark</item>
         <item name="colorButtonNormal">@color/course_code_backgroundDark</item>
 
+        <item name="textFillColor">@color/white</item>
+        <item name="textBackground">@color/black</item>
+
         <item name="customColorValue">@color/fav_button_colorDark</item>
         <item name="badgeTextColor">@color/svg_fillDark</item>
+
+        <item name="textAppearanceButton">@color/light_dark_textDark</item>
+
+        <item name="imageButtonStyle">@color/paperColorDark</item>
+
+        <item name="buttonBarStyle">@color/download_buttonDark</item>
+
+        <item name="shimmer_base_color">@color/shimmer_bg</item>
+
     </style>
 </resources>

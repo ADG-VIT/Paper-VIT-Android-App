@@ -57,6 +57,8 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
             holder.shimmerFrameLayout.stopShimmer();
             holder.shimmerFrameLayout.setShimmer(null);
 
+            holder.courseSlotTextView.setVisibility(View.VISIBLE);
+
             holder.randomImageView.setImageDrawable(null);
             holder.randomImageView.setBackground(null);
             holder.courseSlotTextView.setBackground(null);
