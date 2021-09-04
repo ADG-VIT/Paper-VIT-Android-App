@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="60dp"
+        android:layout_width="207dp"
+        android:layout_height="255dp"
+        android:src="@drawable/next1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paper VIT"
+        android:layout_marginTop="-30dp"
+        android:layout_marginLeft="33dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/semibold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tagline"
+        android:layout_marginLeft="33dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="italic"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginTop="30dp"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        />
+    <Button
+        android:layout_width="295dp"
+        android:layout_height="56dp"
+        android:background="@drawable/uploadbtn"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:textColorHint="@color/white"
+        android:hint="Get Started"
+        android:fontFamily="@font/semibold"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        />
+</LinearLayout>
