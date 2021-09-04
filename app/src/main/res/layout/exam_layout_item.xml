@@ -21,69 +21,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/homeShimmer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?attr/colorAccent"
-            android:padding="10dp">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="40dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="30dp"
-                android:src="@drawable/ic_paper"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorAccent"
+                android:padding="10dp">
 
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
-                android:foregroundGravity="center"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.178"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.447">
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/ic_paper"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/examNameTextView"
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/semibold"
-                    android:text="@string/fat"
-                    android:textColor="?attr/colorPrimaryDark"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:foregroundGravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.178"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.447">
 
-                <TextView
-                    android:id="@+id/examSubNameTextView"
+                    <TextView
+                        android:id="@+id/examNameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shimmer_background_subject"
+                        android:fontFamily="@font/semibold"
+                        android:textColor="?attr/colorPrimaryDark"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/examSubNameTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shimmer_background_subject"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textColor="?attr/colorPrimaryDark"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="@string/fullF"
-                    android:textColor="?attr/colorPrimaryDark"
-                    android:textSize="10sp" />
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_chevron_forward"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/ic_chevron_forward"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

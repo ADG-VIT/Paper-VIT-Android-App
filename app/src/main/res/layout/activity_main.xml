@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="5dp"
     android:background="?attr/backgroundColor"
     tools:context=".Activity.MainActivity">
 
@@ -22,23 +21,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploadButton1" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Choose an Examination to View Subjects"
-            android:textColor="?attr/colorPrimaryDark"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/paper"
-            app:layout_constraintTop_toBottomOf="@+id/paper" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Choose an Examination to View Subjects"
+        android:textColor="?attr/colorPrimaryDark"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/paper"
+        app:layout_constraintTop_toBottomOf="@+id/paper" />
 
     <ImageView
         android:id="@+id/uploadButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="5dp"
         android:src="@drawable/ic_gearshape_fill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,14 +63,14 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="33dp"
         android:layout_marginRight="33dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/button_background"
         android:fontFamily="@font/semibold"
         android:paddingTop="15dp"
-        android:paddingBottom="12dp"
+        android:paddingBottom="15dp"
         android:text="Upload a paper"
+        android:textAllCaps="false"
         android:textColor="?attr/textAppearanceButton"
-        android:textSize="15sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

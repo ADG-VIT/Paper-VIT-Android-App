@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.adgvit.papervit">
+    package="com.adgvit.papervit2">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,39 +16,39 @@
         android:theme="@style/Theme.PaperVIT">
 
         <activity
-            android:name=".Activity.UploadPaper"
+            android:name="com.adgvit.papervit2.Activity.UploadPaper"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.Settings"
+            android:name="com.adgvit.papervit2.Activity.Settings"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.FullView"
+            android:name="com.adgvit.papervit2.Activity.FullView"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.AboutUs"
+            android:name="com.adgvit.papervit2.Activity.AboutUs"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.Exam_2"
+            android:name="com.adgvit.papervit2.Activity.Exam_2"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.Exam_1"
+            android:name="com.adgvit.papervit2.Activity.Exam_1"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.Exam"
+            android:name="com.adgvit.papervit2.Activity.Exam"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.AppearenceSettings"
+            android:name="com.adgvit.papervit2.Activity.AppearenceSettings"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name="com.adgvit.papervit2.Activity.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
         <intent-filter>

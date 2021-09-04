@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@android:color/transparent"
     android:paddingHorizontal="5dp"
+    android:backgroundTint="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
-        android:backgroundTint="?attr/shimmer_base_color"
+        android:backgroundTint="?attr/colorAccent"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="5dp"
         android:paddingLeft="15dp"
