@@ -22,7 +22,7 @@ public class RecyclerAdapterExamMain extends RecyclerView.Adapter<RecyclerAdapte
     Context context;
     List<HomeObject> list;
 
-    public static Boolean showShimmer = true;
+    public static Boolean showShimmer = false;
     public RecyclerAdapterExamMain(Context context, List<HomeObject> list) {
         this.context = context;
         this.list = list;

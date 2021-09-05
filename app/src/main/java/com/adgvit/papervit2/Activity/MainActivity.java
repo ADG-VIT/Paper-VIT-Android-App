@@ -24,6 +24,7 @@ import com.adgvit.papervit2.Object.HomeData;
 import com.adgvit.papervit2.Object.HomeObject;
 import com.adgvit.papervit2.R;
 import com.adgvit.papervit2.Services.API;
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView settings;
     private int READ_STORAGE = 100;
     private int WRITE_STORAGE = 101;
-
+    LottieAnimationView lottie;
     RecyclerView examsRecyclerView;
 
     private static Retrofit.Builder builder = new Retrofit.Builder()
@@ -60,22 +61,31 @@ public class MainActivity extends AppCompatActivity {
         examsRecyclerView = findViewById(R.id.recyclerview_Exams);
 
         settings = (ImageView) findViewById(R.id.uploadButton1);
+        lottie = findViewById(R.id.animationView);
+
         uploadButton = findViewById(R.id.aboutUs);
-        RecyclerAdapterExamMain.showShimmer=true;
+        uploadButton.setVisibility(View.INVISIBLE);
+        lottie.setVisibility(View.VISIBLE);
         API api = retrofit.create(API.class);
         Call<HomeData> call = api.getHome();
         call.enqueue(new Callback<HomeData>() {
             @Override
             public void onResponse(Call<HomeData> call, Response<HomeData> response) {
-                HomeData data = response.body();
-                List<HomeObject> list = new ArrayList<>();
-                list = data.getData().getExamTypes();
-                RecyclerAdapterExamMain.showShimmer=false;
-                LinearLayoutManager manager=new LinearLayoutManager(MainActivity.this);
-                examsRecyclerView.setLayoutManager(manager);
-                RecyclerAdapterExamMain adapter = new RecyclerAdapterExamMain(MainActivity.this, list);
-                examsRecyclerView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
+                try{
+                    HomeData data = response.body();
+                    List<HomeObject> list = new ArrayList<>();
+                    list = data.getData().getExamTypes();
+                    LinearLayoutManager manager=new LinearLayoutManager(MainActivity.this);
+                    examsRecyclerView.setLayoutManager(manager);
+                    RecyclerAdapterExamMain adapter = new RecyclerAdapterExamMain(MainActivity.this, list);
+                    examsRecyclerView.setAdapter(adapter);
+                    lottie.setVisibility(View.GONE);
+                    lottie.pauseAnimation();
+                    uploadButton.setVisibility(View.VISIBLE);
+                }
+                catch (Exception e) {
+                }
+
 
             }
 
@@ -110,42 +120,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
-            /*cat1CardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Exam.examType = "CAT 1";
-                    Intent intent = new Intent(MainActivity.this,Exam.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-
-                }
-            });
-
-            cat2CardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Exam.examType = "CAT 2";
-                    Intent intent = new Intent(MainActivity.this,Exam.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-
-                }
-            });
-
-            fatCardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    Exam.examType = "FAT";
-                    Intent intent = new Intent(MainActivity.this,Exam.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-
-                }
-            });*/
         }
     }
 
@@ -172,47 +146,12 @@ public class MainActivity extends AppCompatActivity {
                 uploadButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(MainActivity.this,Upload.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this,UploadPaper.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                     }
                 });
 
-                /*cat1CardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Exam.examType = "CAT 1";
-                        Intent intent = new Intent(MainActivity.this,Exam.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-
-                    }
-                });
-
-                cat2CardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Exam.examType = "CAT 2";
-                        Intent intent = new Intent(MainActivity.this,Exam.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-
-                    }
-                });
-
-                fatCardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Exam.examType = "FAT";
-                        Intent intent = new Intent(MainActivity.this,Exam.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-
-                    }
-                });*/
 
             }
         }
@@ -235,47 +174,11 @@ public class MainActivity extends AppCompatActivity {
                 uploadButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(MainActivity.this,Upload.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        startActivity(intent);
-                    }
-                });
-
-                /*cat1CardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Exam.examType = "CAT 1";
-                        Intent intent = new Intent(MainActivity.this,Exam.class);
+                        Intent intent = new Intent(MainActivity.this,UploadPaper.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
-
                     }
                 });
-
-                cat2CardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Exam.examType = "CAT 2";
-                        Intent intent = new Intent(MainActivity.this,Exam.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-
-                    }
-                });
-
-                fatCardView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                        Exam.examType = "FAT";
-                        Intent intent = new Intent(MainActivity.this,Exam.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-
-                    }
-                });*/
             }
 
         }

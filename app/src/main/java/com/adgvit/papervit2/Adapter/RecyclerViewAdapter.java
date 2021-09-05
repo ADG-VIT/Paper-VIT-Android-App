@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -76,27 +77,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 @Override
                 public void onClick(View view) {
                     try {
-                    String code = subjectCodeArrayList.get(position);
-                    Integer codeIndex = Exam.idMapping.get(0).indexOf(code);
-                    String subjectId = Exam.idMapping.get(1).get(codeIndex);
-                    String subjectName = subjectNameArrayList.get(position);
-                    String subjectCode = subjectCodeArrayList.get(position);
-                    String subjectShort = subjectShortArrayList.get(position);
+                        String code = subjectCodeArrayList.get(position);
+                        Integer codeIndex = Exam.idMapping.get(0).indexOf(code);
+                        String subjectId = Exam.idMapping.get(1).get(codeIndex);
+                        String subjectName = subjectNameArrayList.get(position);
+                        String subjectCode = subjectCodeArrayList.get(position);
+                        String subjectShort = subjectShortArrayList.get(position);
 
-                    Intent intent = new Intent(context, Exam_1.class);
+                        Intent intent = new Intent(context, Exam_1.class);
 
-                    intent.putExtra("subjectID",subjectId);
-                    intent.putExtra("subjectName",subjectName);
-                    intent.putExtra("subjectCode",subjectCode);
-                    intent.putExtra("subjectShort",subjectShort);
+                        intent.putExtra("subjectID",subjectId);
+                        intent.putExtra("subjectName",subjectName);
+                        intent.putExtra("subjectCode",subjectCode);
+                        intent.putExtra("subjectShort",subjectShort);
 
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-                }catch (ArrayIndexOutOfBoundsException e){
-                    Log.i("Papers","No Papers");
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                    }catch (ArrayIndexOutOfBoundsException e){
+                        Toast.makeText(context, "No Papers Found", Toast.LENGTH_SHORT).show();
 
 
-                }
+                    }
                 }
             });
 

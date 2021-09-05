@@ -27,10 +27,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PAPER-VIT"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:text="PaperVIT"
             android:textColor="?attr/textAppearanceCaption"
-            android:textSize="57dp"
-            android:fontFamily="@font/sf_pro_display_bold"/>
+            android:textSize="55dp" />
 
         <TextView
             android:layout_width="wrap_content"
