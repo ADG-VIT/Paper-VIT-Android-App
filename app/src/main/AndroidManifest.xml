@@ -16,6 +16,22 @@
         android:theme="@style/Theme.PaperVIT">
 
         <activity
+            android:name=".Activity.OnBoardScreen"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".Activity.SplashScreen"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name="com.adgvit.papervit2.Activity.UploadPaper"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
@@ -51,11 +67,6 @@
             android:name="com.adgvit.papervit2.Activity.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
 
     </application>

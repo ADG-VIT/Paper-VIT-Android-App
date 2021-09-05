@@ -6,7 +6,10 @@ import com.adgvit.papervit2.Object.root;
 import com.adgvit.papervit2.Object.root1;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -30,9 +33,14 @@ public interface API {
     @GET("/api/v1/papers/{id}")
     Call<root1> getPaperFat(@Path("id") String _id);
 
-    @Multipart
-    @POST("/api/v1/public/paper")
-    Call<ServerResponse> upload(@Part MultipartBody.Part file);
-    
+//    @Multipart
+//    @POST("/api/v1/public/paper")
+//    Call<ServerResponse> upload(@Part MultipartBody.Part file);
+
+//    @FormUrlEncoded
+//    @POST("/api/v1/public/paper")
+//    Call<ServerResponse> uploadDocument(
+//            @Field("PDF") String encodedPDF
+//    );
 
 }

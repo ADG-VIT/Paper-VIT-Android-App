@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:background="?attr/backgroundColor"
+    android:layout_height="match_parent"
+    tools:context=".Activity.OnBoardScreen">
 
     <ImageView
         android:layout_marginTop="60dp"
@@ -18,7 +21,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/semibold"
         android:textSize="20dp"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorPrimaryDark"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +31,7 @@
         android:fontFamily="@font/poppins_medium"
         android:textStyle="italic"
         android:textSize="16dp"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorPrimaryDark"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -39,11 +42,12 @@
         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         android:fontFamily="@font/poppins_medium"
         android:textSize="12dp"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorPrimaryDark"
         />
-    <Button
+    <android.widget.Button
         android:layout_width="295dp"
         android:layout_height="56dp"
+        android:id="@+id/redirectActivity"
         android:background="@drawable/uploadbtn"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="80dp"

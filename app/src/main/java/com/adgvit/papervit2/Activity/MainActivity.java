@@ -57,26 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        // To be put in the Splash Screen
-
-        SharedPreferences sharedPreferences = getSharedPreferences("com.adgvit.papervit.theme",MODE_PRIVATE);
-
-        if(sharedPreferences != null)
-        {
-            if(sharedPreferences.getString("theme","").equals("sys_def"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-            }
-            else if(sharedPreferences.getString("theme","").equals("light"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }
-            else if(sharedPreferences.getString("theme","").equals("dark"))
-            {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-            }
-        }
-
         examsRecyclerView = findViewById(R.id.recyclerview_Exams);
 
         settings = (ImageView) findViewById(R.id.uploadButton1);
