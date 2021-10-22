@@ -91,5 +91,9 @@
     <string name="textRefer">With PaperVIT by your side, ab <b>back</b> nhi lagegi!!
 Discover frequently asked questions, question paper pattern and model questions through old question papers available on PaperVIT.
         Jab <b>6 hazar</b> ki ho baat, to yeh bhi try karlo yaar.</string>
+    <string name="adg_info">Apple Developers Group is a student community at VIT that brings together like-minded individuals who are interested in Developing their Dream.</string>
+    <string name="ios">IOS</string>
+    <string name="android1">Android</string>
+    <string name="backend">Backend</string>
 
 </resources>

@@ -17,7 +17,9 @@ import static java.lang.String.format;
 
 public class Settings extends AppCompatActivity {
     private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms, settings;
-    private String appurl = "https://play.google.com/store/apps/details?id=com.adgvit.papervit";
+    private final String appURL = "https://play.google.com/store/apps/details?id=com.adgvit.papervit";
+
+    private static final String PRIVACY_POLICY = "https://fakeyudi.notion.site/Privacy-Policy-e74a1361a6774ebfa2d443f411c0191f";
 
     ImageView backImageView;
 
@@ -79,7 +81,7 @@ public class Settings extends AppCompatActivity {
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,"");
                 String text = "With PaperVIT by your side, ab " +"*back*"+" nhi lagegi!!\n"+
                         "Discover frequently asked questions, question paper pattern and model questions through old question papers available on PaperVIT.\n" +
-                        "Jab "+"*6 hazar*"+" ki ho baat, to yeh bhi try karlo yaar.\n"+"App Link: "+appurl;
+                        "Jab "+"*6 hazar*"+" ki ho baat, to yeh bhi try karlo yaar.\n"+"App Link: "+ appURL;
                 shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
                 v.getContext().startActivity(Intent.createChooser(shareIntent,"Share via"));
             }
@@ -88,7 +90,7 @@ public class Settings extends AppCompatActivity {
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse(appurl);
+                Uri uri = Uri.parse(appURL);
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 v.getContext().startActivity(intent);
             }
@@ -106,7 +108,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Uri uri = Uri.parse("https://pp.adgvit.com/papervit");
+                Uri uri = Uri.parse(PRIVACY_POLICY);
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 v.getContext().startActivity(intent);
             }
