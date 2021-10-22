@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
+import com.adgvit.papervit2.Adapter.RecyclerViewAdapter;
 import com.adgvit.papervit2.R;
 
 public class AppearenceSettings extends AppCompatActivity {
@@ -118,4 +119,10 @@ public class AppearenceSettings extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
 }

@@ -64,4 +64,6 @@
     <color name="shimmer_bg">#FFFFFF</color>
     <color name="shimmer_bgDark">#474646</color>
 
+    <color name="about_us">#4F556B</color>
+
 </resources>
