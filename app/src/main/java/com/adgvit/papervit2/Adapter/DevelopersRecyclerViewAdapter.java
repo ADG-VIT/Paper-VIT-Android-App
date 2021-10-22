@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.adgvit.papervit2.R;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -19,9 +20,12 @@ public class DevelopersRecyclerViewAdapter extends RecyclerView.Adapter<Develope
 
     private String[] name;
     private String[] techStack;
-    private int[] developersImage;
+    private String[] developersImage;
 
-    public DevelopersRecyclerViewAdapter(String[] name, String[] techStack, int[] developersImage) {
+    Context context;
+
+    public DevelopersRecyclerViewAdapter(Context context,String[] name, String[] techStack, String[] developersImage) {
+        this.context = context;
         this.name = name;
         this.techStack = techStack;
         this.developersImage = developersImage;
@@ -39,7 +43,7 @@ public class DevelopersRecyclerViewAdapter extends RecyclerView.Adapter<Develope
     public void onBindViewHolder(@NonNull DevelopersRecyclerViewAdapter.DeveloperViewHolder holder, int position) {
         holder.developerName.setText(name[position]);
         holder.developerTech.setText(techStack[position]);
-        holder.developerImage.setImageResource(developersImage[position]);
+        Glide.with(context).load(developersImage[position]).into(holder.developerImage);
     }
 
     @Override
