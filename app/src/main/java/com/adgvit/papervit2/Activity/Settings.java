@@ -16,10 +16,17 @@ import com.adgvit.papervit2.R;
 import static java.lang.String.format;
 
 public class Settings extends AppCompatActivity {
-    private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms, settings;
+    private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms, settings, twitter;
     private final String appURL = "https://play.google.com/store/apps/details?id=com.adgvit.papervit";
 
     private static final String PRIVACY_POLICY = "https://fakeyudi.notion.site/Privacy-Policy-e74a1361a6774ebfa2d443f411c0191f";
+
+    private static final String EMAIL = "papervit.adg@gmail.com";
+
+    private static final String FACEBOOK = "https://www.facebook.com/vitios/";
+    private static final String TWITTER = "https://twitter.com/adgvit";
+    private static final String INSTAGRAM = "https://www.instagram.com/adgvit/";
+    private static final String LINKEDIN = "https://www.linkedin.com/company/adgvit/";
 
     ImageView backImageView;
 
@@ -45,6 +52,7 @@ public class Settings extends AppCompatActivity {
         facebook = findViewById(R.id.facebookreferSettings);
         instagram = findViewById(R.id.instagramSettings);
         rate = findViewById(R.id.rateSettings);
+        twitter = findViewById(R.id.twitterSettings);
         //terms = findViewById(R.id.termsSettings);
 
         settings.setOnClickListener(new View.OnClickListener() {
@@ -90,20 +98,13 @@ public class Settings extends AppCompatActivity {
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse(appURL);
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                v.getContext().startActivity(intent);
+                Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + EMAIL));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "your_subject");
+                intent.putExtra(Intent.EXTRA_TEXT, "your_text");
+                startActivity(intent);
             }
         });
 
-        /*terms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("https://tnc.adgvit.com/papervit");
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
-                v.getContext().startActivity(intent);
-            }
-        });*/
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +118,7 @@ public class Settings extends AppCompatActivity {
         linkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.linkedin.com/company/adgvit/");
+                Uri uri = Uri.parse(LINKEDIN);
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 v.getContext().startActivity(intent);
             }
@@ -126,7 +127,16 @@ public class Settings extends AppCompatActivity {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.facebook.com/vitios/");
+                Uri uri = Uri.parse(FACEBOOK);
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(TWITTER);
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 v.getContext().startActivity(intent);
             }
@@ -135,7 +145,7 @@ public class Settings extends AppCompatActivity {
         instagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.instagram.com/adgvit/");
+                Uri uri = Uri.parse(INSTAGRAM);
                 Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                 v.getContext().startActivity(intent);
             }
