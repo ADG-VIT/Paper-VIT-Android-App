@@ -48,6 +48,7 @@ public class RecyclerAdapterExamMain extends RecyclerView.Adapter<RecyclerAdapte
             holder.shimmerFrameLayout.setShimmer(null);
             holder.examNameTV.setBackground(null);
             holder.examNameTV.setText(list.get(position).getExamType());
+            holder.examSubNameTV.setText(list.get(position).getExamName());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {                                //For CAT1, NOW testing
