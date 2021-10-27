@@ -17,7 +17,7 @@ import static java.lang.String.format;
 
 public class Settings extends AppCompatActivity {
     private ConstraintLayout aboutUs,feedback,refer,privacy,linkedin,facebook,instagram,rate,terms, settings, twitter;
-    private final String appURL = "https://play.google.com/store/apps/details?id=com.adgvit.papervit";
+    private final String appURL = "https://play.google.com/store/apps/details?id=com.adgvit.papervit2";
 
     private static final String PRIVACY_POLICY = "https://fakeyudi.notion.site/Privacy-Policy-e74a1361a6774ebfa2d443f411c0191f";
 

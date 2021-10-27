@@ -24,14 +24,18 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
     private ArrayList<Integer> randomImage = new ArrayList<>();
     private ArrayList<String> courseSlot;
     private ArrayList<String> courseDesc;
+    private ArrayList<String> fileName;
+    private ArrayList<String> fileUrl;
     private Context context;
     public static Boolean showShimmer = true;
     private int shimmerSize = 8;
 
 
-    public RecyclerViewAdapter2(ArrayList<String> courseDesc, ArrayList<String> courseSlot, Context context) {
+    public RecyclerViewAdapter2(ArrayList<String> courseDesc, ArrayList<String> courseSlot, ArrayList<String> fileName, ArrayList<String> fileUrl, Context context) {
         this.courseDesc = courseDesc;
         this.courseSlot = courseSlot;
+        this.fileName =fileName;
+        this.fileUrl=fileUrl;
         this.context = context;
     }
 
@@ -80,9 +84,8 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
                     intent.putExtra("subCode", Exam_1.subjectCode);
                     intent.putExtra("subYear", courseDesc.get(position));
                     intent.putExtra("subSlot", courseSlot.get(position));
-                    intent.putExtra("paperId", Exam_1.paperIdArrayList.get(position));
-                    intent.putExtra("fileName",Exam_1.paperFileNameArrayList.get(position));
-                    intent.putExtra("fileUrl",Exam_1.paperUrlList.get(position));
+                    intent.putExtra("fileName",fileName.get(position));
+                    intent.putExtra("fileUrl",fileUrl.get(position));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }

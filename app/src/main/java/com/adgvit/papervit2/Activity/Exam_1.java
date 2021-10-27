@@ -40,12 +40,12 @@ public class    Exam_1 extends AppCompatActivity {
     private ArrayList<String> courseDesc = new ArrayList<String>();
     private TextView subjectShortTextView, subjectNameTextView, subjectNameTextView2, subjectCodeTextView;
 
-    public static ArrayList<String> paperIdArrayList = new ArrayList<>();
-    public static ArrayList<String> paperSlotArrayList = new ArrayList<>();
-    public static ArrayList<String> paperYearArrayList = new ArrayList<>();
-    public static ArrayList<String> paperExamArrayList = new ArrayList<>();
-    public static ArrayList<String> paperFileNameArrayList = new ArrayList<>();
-    public static ArrayList<String> paperUrlList = new ArrayList<>();
+    public ArrayList<String> paperIdArrayList = new ArrayList<>();
+    public ArrayList<String> paperSlotArrayList = new ArrayList<>();
+    public ArrayList<String> paperYearArrayList = new ArrayList<>();
+    public ArrayList<String> paperExamArrayList = new ArrayList<>();
+    public ArrayList<String> paperFileNameArrayList = new ArrayList<>();
+    public ArrayList<String> paperUrlList = new ArrayList<>();
 
 
     private static String cat1 = "CAT 1";
@@ -143,6 +143,7 @@ public class    Exam_1 extends AppCompatActivity {
                         paperIdArrayList.add(item.get_id());
                         paperSlotArrayList.add(item.getSlot());
                         paperUrlList.add(item.getUrl());
+                        //Log.i("paperURl",item.getUrl());
                         // paperExamArrayList.add(exam);
                         paperYearArrayList.add(item.getSemester());
                         paperFileNameArrayList.add(item.getFileName());
@@ -188,7 +189,7 @@ public class    Exam_1 extends AppCompatActivity {
             }
         });
 
-        recyclerViewAdapter = new RecyclerViewAdapter2(paperYearArrayList,paperSlotArrayList, Exam_1.this);
+        recyclerViewAdapter = new RecyclerViewAdapter2(paperYearArrayList,paperSlotArrayList,paperFileNameArrayList,paperUrlList,Exam_1.this);
         recyclerView.setAdapter(recyclerViewAdapter);
 
     }

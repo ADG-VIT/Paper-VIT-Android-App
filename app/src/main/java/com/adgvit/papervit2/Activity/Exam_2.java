@@ -91,7 +91,6 @@ public class Exam_2 extends AppCompatActivity {
         String subjectCode = intent.getStringExtra("subCode");
         String subjectYear = intent.getStringExtra("subYear");
         String subjectSlot = intent.getStringExtra("subSlot");
-        String paperId = intent.getStringExtra("paperId");
         filename = intent.getStringExtra("fileName");
         fileUrl = intent.getStringExtra("fileUrl");
         //Log.i("fileUrl",fileUrl);
